@@ -6,7 +6,8 @@ import emailjs from "@emailjs/browser";
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const text = "Say Hello";
+  const [loading, setLoading] = useState(false); // Loading state
+  const text = "Say Hi!";
 
   const form = useRef();
 
@@ -14,6 +15,7 @@ const ContactPage = () => {
     e.preventDefault();
     setError(false);
     setSuccess(false);
+    setLoading(true); // Start loading
 
     emailjs
       .sendForm(
@@ -26,9 +28,11 @@ const ContactPage = () => {
         () => {
           setSuccess(true);
           form.current.reset();
+          setLoading(false); // Stop loading after success
         },
         () => {
           setError(true);
+          setLoading(false); // Stop loading after error
         }
       );
   };
@@ -58,7 +62,7 @@ const ContactPage = () => {
                 {letter}
               </motion.span>
             ))}
-            😊
+            😊😁
           </div>
         </div>
         {/* FORM CONTAINER */}
@@ -67,21 +71,29 @@ const ContactPage = () => {
           ref={form}
           className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
         >
-          <span>Dear Lama Dev,</span>
+          <span>Dear Julius Ntale,</span>
           <textarea
             rows={6}
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
+            required
+            placeholder="Write your message..."
           />
           <span>My mail address is:</span>
           <input
             name="user_email"
-            type="text"
+            type="email" // Email input type for validation
             className="bg-transparent border-b-2 border-b-black outline-none"
-          />
+            required
+            placeholder="Your email address"/>
+
           <span>Regards</span>
-          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
-            Send
+          <button type="submit"
+            className="bg-purple-200 rounded font-semibold text-gray-600 p-4"
+            disabled={loading} // Disable button while loading
+          >
+            {loading ? "Sending..." : "Send"} {/* Show loading text */}
+       
           </button>
           {success && (
             <span className="text-green-600 font-semibold">
