@@ -1,5 +1,5 @@
 {
-  "name": "Julius-Ntale-portfolio-starter",
+  "name": "lama-dev-portfolio-starter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
-    "framer-motion": "^11.11.1",
+    "@emailjs/browser": "^3.12.1",
+    "framer-motion": "^11.0.3",
     "next": "14.1.0",
     "react": "18",
     "react-dom": "18"
