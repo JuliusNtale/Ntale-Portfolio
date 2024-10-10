@@ -11,19 +11,20 @@ const Homepage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <div className="h-full overflow-scroll flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* IMAGE CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 relative">
-        <Image src="/hero.png" alt="Hero Image" fill className="object-contain" />
+        <Image src="/ntale.png" alt="Hero Image" fill className="object-contain" />
         </div>
 
         {/* TEXT CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            A Freelance , <br />
-            Web Developer <br />
-            and Photographer
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 ">
+            Crafting Digital 
+            Experieces, Designing 
+            Tomorrow.
           </h1>
+          
           <p className="mb-6 md:text-xl">
             I specialize in creating engaging and visually stunning websites and
             applications. Feel free to reach out if you have any projects in
