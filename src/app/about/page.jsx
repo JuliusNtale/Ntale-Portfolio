@@ -1,5 +1,5 @@
 "use client";
-import Brain from "@/components/brain";
+import Brain from "src\components\brain.jsx";
 import { motion, useInView, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
