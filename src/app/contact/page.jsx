@@ -76,7 +76,6 @@ const ContactPage = () => {
             rows={6}
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
-            required
             placeholder="Write your message..."
           />
           <span>My mail address is:</span>
