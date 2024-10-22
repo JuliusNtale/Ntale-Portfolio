@@ -77,7 +77,7 @@ const ContactPage = () => {
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
             placeholder="Write your message..."
-            required // Ensure the message is filled
+            
           />
           <label htmlFor="user_email">My email address is:</label>
           <input
