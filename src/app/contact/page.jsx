@@ -8,7 +8,6 @@ const ContactPage = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false); // Loading state
   const text = "Say Hi!";
-
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -30,7 +29,8 @@ const ContactPage = () => {
           form.current.reset();
           setLoading(false); // Stop loading after success
         },
-        () => {
+        (err) => {
+          console.error("Email sending error:", err); // Log specific error
           setError(true);
           setLoading(false); // Stop loading after error
         }
@@ -77,22 +77,25 @@ const ContactPage = () => {
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
             placeholder="Write your message..."
+            required // Ensure the message is filled
           />
-          <span>My mail address is:</span>
+          <label htmlFor="user_email">My email address is:</label>
           <input
+            id="user_email"
             name="user_email"
-            type="email" // Email input type for validation
+            type="email"
             className="bg-transparent border-b-2 border-b-black outline-none"
             required
-            placeholder="Your email address"/>
+            placeholder="Your email address"
+          />
 
           <span>Regards</span>
-          <button type="submit"
+          <button
+            type="submit"
             className="bg-purple-200 rounded font-semibold text-gray-600 p-4"
             disabled={loading} // Disable button while loading
           >
             {loading ? "Sending..." : "Send"} {/* Show loading text */}
-       
           </button>
           {success && (
             <span className="text-green-600 font-semibold">
@@ -101,7 +104,7 @@ const ContactPage = () => {
           )}
           {error && (
             <span className="text-red-600 font-semibold">
-              Something went wrong!
+              Something went wrong! Please try again.
             </span>
           )}
         </form>
