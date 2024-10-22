@@ -4,6 +4,8 @@ import { motion, useInView, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
+const easing = [0.6, -0.05, 0.01, 0.99]; // Custom cubic-bezier easing for smooth transitions
+
 const AboutPage = () => {
   const containerRef = useRef();
 
@@ -21,7 +23,7 @@ const AboutPage = () => {
       className="h-full"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, ease: easing }}
     >
       {/* CONTAINER */}
       <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
@@ -30,19 +32,37 @@ const AboutPage = () => {
           {/* BIOGRAPHY CONTAINER */}
           <div className="flex flex-col gap-12 justify-center">
             {/* BIOGRAPHY IMAGE */}
-            <Image
-              src="/ntale.png"
-              alt=""
-              width={112}
-              height={112}
-              className="w-35 h-90 rounded-full object-cover"
-            />
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: easing }}
+            >
+              <Image
+                src="/ntale.png"
+                alt="Portrait of Julius Ntale"
+                width={112}
+                height={112}
+                className="w-35 h-90 rounded-full object-cover"
+              />
+            </motion.div>
             {/* BIOGRAPHY TITLE */}
-            <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
-            {/* BIOGRAPHY DESC */}
-            <p className="text-lg">
-            Pursuing a degree in Software Engineering at the University of Dodoma and holds certifications in graphics design and cybersecurity.Skilled in network maintenance, troubleshooting, and creative media production, combining technical expertise with an artistic eye. Aims to develop innovative solutions while growing his media ventures.
-            </p>
+            <motion.h1
+              className="font-bold text-2xl"
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7, ease: easing }}
+            >
+              BIOGRAPHY
+            </motion.h1>
+            {/* BIOGRAPHY DESCRIPTION */}
+            <motion.p
+              className="text-lg"
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.7, ease: easing }}
+            >
+              Pursuing a degree in Software Engineering at the University of Dodoma with certifications in graphics design and cybersecurity. Skilled in network maintenance, troubleshooting, and creative media production, combining technical expertise with an artistic eye. Aims to develop innovative solutions while growing his media ventures.
+            </motion.p>
             {/* BIOGRAPHY QUOTE */}
             <span className="italic">
             Technical expertise with artistic vision.
@@ -97,8 +117,9 @@ const AboutPage = () => {
             </motion.h1>
             {/* SKILL LIST */}
             <motion.div
-              initial={{ x: "-300px" }}
-              animate={isSkillRefInView ? { x: 0 } : {}}
+              initial={{ x: "-300px", opacity: 0 }}
+              animate={isSkillRefInView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.6, ease: easing }}
               className="flex gap-4 flex-wrap"
             >
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
@@ -178,24 +199,20 @@ const AboutPage = () => {
             </motion.svg>
           </div>
           {/* EXPERIENCE CONTAINER */}
-          <div
-            className="flex flex-col gap-12 justify-center pb-48"
-            ref={experienceRef}
-          >
-            {/* EXPERIENCE TITLE */}
+          <div className="flex flex-col gap-12 justify-center pb-48" ref={experienceRef}>
             <motion.h1
-              initial={{ x: "-300px" }}
-              animate={isExperienceRefInView ? { x: "0" } : {}}
-              transition={{ delay: 0.2 }}
+              initial={{ x: "-300px", opacity: 0 }}
+              animate={isExperienceRefInView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.6, ease: easing }}
               className="font-bold text-2xl"
             >
               EXPERIENCE
             </motion.h1>
             {/* EXPERIENCE LIST */}
             <motion.div
-              initial={{ x: "-300px" }}
-              animate={isExperienceRefInView ? { x: "0" } : {}}
-              className=""
+              initial={{ x: "-300px", opacity: 0 }}
+              animate={isExperienceRefInView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.6, ease: easing }}
             >
               {/* EXPERIENCE LIST ITEM */}
               <div className="flex justify-between h-48">
