@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",  // Set the base URL to the root of the project
+    "baseUrl": ".",  // Set the base URL to the root of the project
     "paths": {
       "@/*": ["src/*"]  // Create an alias for importing from the src folder
     }
   },
-  "include": ["src/**/*"]  // Ensure TypeScript or JS can recognize files in src
+  "include": ["src/**/*"]  // Ensure that all files in the src directory are included
 }
