@@ -31,11 +31,11 @@ const AboutPage = () => {
           <div className="flex flex-col gap-12 justify-center">
             {/* BIOGRAPHY IMAGE */}
             <Image
-              src="https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/ntale.png"
               alt=""
               width={112}
               height={112}
-              className="w-28 h-28 rounded-full object-cover"
+              className="w-35 h-90 rounded-full object-cover"
             />
             {/* BIOGRAPHY TITLE */}
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
@@ -144,7 +144,7 @@ const AboutPage = () => {
                 Vite
               </div>
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Docker
+                CSS
               </div>
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Git
@@ -203,7 +203,7 @@ const AboutPage = () => {
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
                   <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Senior JavaScript Engineer
+                    Junior JavaScript Engineer
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
@@ -246,7 +246,7 @@ const AboutPage = () => {
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
                   <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Senior React Developer
+                  Junior React Developer
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
@@ -255,7 +255,7 @@ const AboutPage = () => {
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2019 - 2024{" "}
+                    2024{" "}
                   </div>
                   {/* JOB COMPANY */}
                   <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
@@ -278,7 +278,7 @@ const AboutPage = () => {
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2010 - 2019{" "}
+                    2020 - 2023{" "}
                   </div>
                 </div>
                 {/* CENTER */}

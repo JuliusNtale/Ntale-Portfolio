@@ -90,22 +90,20 @@ const Navbar = () => {
       </div>
       {/* SOCIAL */}
       <div className="hidden md:flex gap-4 w-1/3">
-        <Link href="/">
-          <Image src="/github.png" alt="" width={24} height={24} />
+        <Link href="https://github.com/JuliusNtale">
+          <Image src="/github.png" alt="" width={24} height={24} 
+          priority// Prioritize loading GitHub icon 
+          />
         </Link>
-        <Link href="/">
-          <Image src="/dribbble.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="/">
+      
+        <Link href="https://www.instagram.com/natchy_.p">
           <Image src="/instagram.png" alt="" width={24} height={24} />
         </Link>
-        <Link href="/">
+        <Link href="https://www.facebook.com/julius.ntale.18/">
           <Image src="/facebook.png" alt="" width={24} height={24} />
         </Link>
-        <Link href="/">
-          <Image src="/pinterest.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="/">
+      
+        <Link href="https://www.linkedin.com/in/julius-ntale-aa08902b6/">
           <Image src="/linkedin.png" alt="" width={24} height={24} />
         </Link>
       </div>
