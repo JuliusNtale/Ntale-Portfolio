@@ -16,7 +16,7 @@ const Homepage = () => {
        {/* IMAGE CONTAINER */}
         <div className="relative w-full h-1/2 lg:w-1/2 lg:h-full flex-shrink-0">
       <Image
-        src="/julius-1.png"
+        src="/linkedin.png"
         fill
         alt="Julius Ntale - Professional Portfolio"
         priority
