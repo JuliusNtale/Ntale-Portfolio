@@ -587,9 +587,6 @@ video {
 .sticky {
   position: sticky;
 }
-.inset-0 {
-  inset: 0px;
-}
 .-left-2 {
   left: -0.5rem;
 }
@@ -605,6 +602,9 @@ video {
 .top-0 {
   top: 0px;
 }
+.z-10 {
+  z-index: 10;
+}
 .z-30 {
   z-index: 30;
 }
@@ -613,9 +613,6 @@ video {
 }
 .z-50 {
   z-index: 50;
-}
-.z-10 {
-  z-index: 10;
 }
 .m-4 {
   margin: 1rem;
@@ -677,9 +674,6 @@ video {
 }
 .h-screen {
   height: 100vh;
-}
-.h-1\/3 {
-  height: 33.333333%;
 }
 .w-1 {
   width: 0.25rem;
@@ -934,14 +928,6 @@ video {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
 .pb-48 {
   padding-bottom: 12rem;
 }
@@ -1143,10 +1129,6 @@ video {
 }
 @media (min-width: 1024px) {
 
-  .lg\:relative {
-    position: relative;
-  }
-
   .lg\:block {
     display: block;
   }
@@ -1179,10 +1161,6 @@ video {
     flex-direction: row;
   }
 
-  .lg\:justify-start {
-    justify-content: flex-start;
-  }
-
   .lg\:gap-48 {
     gap: 12rem;
   }
@@ -1202,10 +1180,6 @@ video {
 
   .lg\:pr-0 {
     padding-right: 0px;
-  }
-
-  .lg\:text-left {
-    text-align: left;
   }
 
   .lg\:text-6xl {
