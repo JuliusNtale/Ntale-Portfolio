@@ -38,7 +38,7 @@ const AboutPage = () => {
               transition={{ duration: 0.8, ease: easing }}
             >
               <Image
-                src="/ntale.png"
+                src="/Julius.png"
                 alt="Portrait of Julius Ntale"
                 width={112}
                 height={112}
