@@ -106,7 +106,7 @@ const Navbar = () => {
         <Link href="https://github.com/JuliusNtale" target="_blank" rel="noopener noreferrer">
           <Image src="/github.png" alt="GitHub" width={24} height={24} priority />
         </Link>
-        <Link href="https://www.instagram.com/natchy_.p" target="_blank" rel="noopener noreferrer">
+        <Link href="https://www.instagram.com/am.jhey" target="_blank" rel="noopener noreferrer">
           <Image src="/instagram.png" alt="Instagram" width={24} height={24} />
         </Link>
         <Link href="https://www.facebook.com/julius.ntale.18/" target="_blank" rel="noopener noreferrer">
