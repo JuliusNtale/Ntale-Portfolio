@@ -139,5 +139,5 @@ If you have any questions or suggestions, feel free to contact me through the po
 
 ---
 
-Thank you for visiting my portfolio repository and leave comment for more!
+Thank you for visiting my portfolio repository, leave comment for more!
 
