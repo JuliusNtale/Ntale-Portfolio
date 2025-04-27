@@ -38,6 +38,16 @@ Ntale-Portfolio
 └── README.md       # Project documentation
 ```
 
+## 📸 Screenshots
+
+>![Screenshot 2025-04-27 113642](https://github.com/user-attachments/assets/f90c8c03-4a37-429c-930c-610f65750c52)
+> ![Screenshot 2025-04-27 113745](https://github.com/user-attachments/assets/c9b5dea1-3bd3-4e13-ab8d-d6d809c8c459)
+>![Screenshot 2025-04-27 113726](https://github.com/user-attachments/assets/c250644d-459b-49ed-92c8-21be3c2771a3)
+>![Screenshot 2025-04-27 113811](https://github.com/user-attachments/assets/1e6cb3e2-db95-44d3-9717-5103a3935c7e)
+
+
+
+
 ## Getting Started
 
 ### Prerequisites
