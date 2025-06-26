@@ -9,19 +9,34 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.12.1",
+    "@emailjs/browser": "^4.3.3",
     "@vercel/analytics": "^1.3.1",
     "@vercel/speed-insights": "^1.0.13",
     "framer-motion": "^11.0.3",
     "next": "^14.2.15",
-    "react": "18",
-    "react-dom": "18"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next-themes": "^0.3.0",
+    "@react-three/fiber": "^8.15.19",
+    "@react-three/drei": "^9.96.0",
+    "three": "^0.160.1",
+    "lucide-react": "^0.344.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^12.0.0",
+    "date-fns": "^3.3.1",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
-    "autoprefixer": "10.0.1",
-    "eslint": "8",
+    "@types/node": "^20.11.19",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@types/three": "^0.160.0",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.56.0",
     "eslint-config-next": "14.1.0",
-    "postcss": "8",
-    "tailwindcss": "3.3.0"
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
   }
 }

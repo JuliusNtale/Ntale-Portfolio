@@ -2,111 +2,220 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-
-const items = [
-  {
-    id: 1,
-    color: "from-red-300 to-blue-300",
-    title: "React Commerce",
-    desc: "An online  Ecommerce Website that consist of cookies cache fo its users where one can sell and buy different products online without every meting the clients  ",
-    img: "/project1.jpg",
-    link: "https://github.com/JuliusNtale",
-  },
-  {
-    id: 2,
-    color: "from-blue-300 to-violet-300",
-    title: "My Portfolio",
-    desc: "An online Portfolio  Website page that i use react and Nest js to constract well animated and detailed about me, my profession and work to the new ones who would like to know who i am ",
-    img: "/project2.jpg",
-    link: "https://github.com/JuliusNtale",
-  },
-  {
-    id: 3,
-    color: "from-violet-300 to-purple-300",
-    title: "Student Management",
-    desc: "An online Student management system used by the schools to manage students attandence and accademic records and gives parent accces to know more about there students witout physicallly going to school",
-    img: "/project3.jpg",
-    link: "https://github.com/JuliusNtale",
-  },
-  {
-    id: 4,
-    color: "from-purple-300 to-red-300",
-    title: "Hillsview Website",
-    desc: "An online Website for Hillsview Company  a media production company that deals with phototgraphy and videography where it is used to advertise its work to others and invite new customers ",
-    img: "/project4.jpg",
-    link: "https://github.com/JuliusNtale",
-  },
-];
+import { useRef, useState } from "react";
+import { Github, ExternalLink, Calendar, Code2 } from "lucide-react";
+import { featuredProjects } from "@/lib/data";
 
 const PortfolioPage = () => {
   const ref = useRef();
+  const [filter, setFilter] = useState('all');
 
   const { scrollYProgress } = useScroll({ target: ref });
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
+  const categories = ['all', 'web', 'mobile', 'desktop'];
+  
+  const filteredProjects = filter === 'all' 
+    ? featuredProjects 
+    : featuredProjects.filter(project => project.category === filter);
+
   return (
     <motion.div
-      className="h-full"
+      className="min-h-screen bg-background"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="h-[600vh] relative" ref={ref}>
-        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center">
-          My Works
-        </div>
-        <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
-          <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
-            {items.map((item) => (
-              <div
-                className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
-                key={item.id}
-              >
-                <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-7xl">
-                    {item.title}
-                  </h1>
-                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
-                    <Image
-                      src={item.img}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      priority={item.id === 1}
-                    />
-                  </div>
-                  <p className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
-                    {item.desc}
-                  </p>
-                  <Link
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex justify-end"
-                  >
-                    <button
-                      type="button"
-                      className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded"
-                    >
-                      See Demo
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            ))}
+      {/* Hero Section */}
+      <div className="h-screen relative overflow-hidden" ref={ref}>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+        <div className="relative z-10 w-screen h-full flex items-center justify-center text-center px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-4xl mx-auto"
+          >
+            <motion.h1 
+              className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              My Works
+            </motion.h1>
+            <motion.p 
+              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              A collection of projects that showcase my passion for creating 
+              innovative digital experiences and solving real-world problems.
+            </motion.p>
+            
+            {/* Project Categories Filter */}
+            <motion.div 
+              className="flex flex-wrap justify-center gap-4 mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setFilter(category)}
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    filter === category
+                      ? 'bg-primary text-primary-foreground shadow-lg'
+                      : 'bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground'
+                  }`}
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </button>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </div>
-      <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
-        <h1 className="text-8xl">Do you have a project?</h1>
-        <div className="relative">
+
+      {/* Featured Projects Showcase */}
+      <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
+        <motion.div style={{ x }} className="flex">
+          <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-primary/10 to-accent/10" />
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-background via-accent/5 to-background relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+            >
+              <div className="flex flex-col lg:flex-row gap-8 text-foreground max-w-6xl mx-auto px-8">
+                {/* Project Info */}
+                <div className="flex flex-col gap-6 lg:w-1/2">
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm font-medium">
+                        {project.category.toUpperCase()}
+                      </span>
+                      <span className="text-muted-foreground text-sm flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {new Date(project.startDate).getFullYear()}
+                      </span>
+                    </div>
+                    
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+                      {project.title}
+                    </h1>
+                    
+                    <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-secondary text-secondary-foreground rounded-md text-sm font-medium flex items-center gap-1"
+                        >
+                          <Code2 className="w-3 h-3" />
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    {/* Actions */}
+                    <div className="flex gap-4">
+                      <Link
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                      >
+                        <Github className="w-5 h-5" />
+                        View Code
+                      </Link>
+                      {project.liveUrl && (
+                        <Link
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-colors"
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                          Live Demo
+                        </Link>
+                      )}
+                    </div>
+                  </motion.div>
+                </div>
+                
+                {/* Project Image */}
+                <motion.div 
+                  className="lg:w-1/2"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="relative w-full h-64 md:h-80 lg:h-96 xl:h-[420px] group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl transform group-hover:scale-105 transition-transform duration-300" />
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover rounded-2xl shadow-2xl"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority={index === 0}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Call to Action Section */}
+      <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid dark:bg-grid-dark opacity-20" />
+        <div className="relative z-10 max-w-4xl mx-auto px-8">
+          <motion.h1 
+            className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Do you have a project?
+          </motion.h1>
+          
+          <motion.p 
+            className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Let&apos;s collaborate and bring your ideas to life. I&apos;m always excited to work on new challenges.
+          </motion.p>
+        </div>
+        
+        <motion.div 
+          className="relative"
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <motion.svg
             animate={{ rotate: 360 }}
             transition={{ duration: 8, ease: "linear", repeat: Infinity }}
             viewBox="0 0 300 300"
-            className="w-64 h-64 md:w-[500px] md:h-[500px] "
+            className="w-64 h-64 md:w-[500px] md:h-[500px]"
           >
             <defs>
               <path
@@ -114,19 +223,21 @@ const PortfolioPage = () => {
                 d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
               />
             </defs>
-            <text fill="#000">
-              <textPath xlinkHref="#circlePath" className="text-xl">
-                Front-end Developer and UI Designer
+            <text fill="currentColor" className="text-primary">
+              <textPath xlinkHref="#circlePath" className="text-xl font-medium">
+                Full-Stack Developer • UI/UX Designer • Problem Solver • 
               </textPath>
             </text>
           </motion.svg>
           <Link
             href="/contact"
-            className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex items-center justify-center"
+            className="w-20 h-20 md:w-32 md:h-32 absolute top-0 left-0 right-0 bottom-0 m-auto bg-primary text-primary-foreground rounded-full flex items-center justify-center text-lg md:text-xl font-bold hover:bg-primary/90 transition-colors shadow-2xl group"
           >
-            Hire Me
+            <span className="group-hover:scale-110 transition-transform">
+              Hire Me
+            </span>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
