@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Github, ExternalLink, Calendar, ArrowLeft } from 'lucide-react';

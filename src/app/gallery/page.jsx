@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X, ZoomIn, Camera, Video } from "lucide-react";
-import Image from "next/image";
 
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -77,7 +76,6 @@ const GalleryPage = () => {
   ];
 
   const filters = ["All", "Photography", "Videography"];
-  const types = ["All", "Landscape", "Portrait", "Architecture", "Commercial", "Documentary", "Wedding", "Event", "Street"];
 
   const filteredItems = galleryItems.filter(item => {
     if (activeFilter === "All") return true;
@@ -238,8 +236,8 @@ const GalleryPage = () => {
               Need Professional Photography or Videography?
             </h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Whether it's capturing your special moments, creating marketing content, 
-              or documenting your events, I'm here to help bring your vision to life.
+              Whether it&apos;s capturing your special moments, creating marketing content, 
+              or documenting your events, I&apos;m here to help bring your vision to life.
             </p>
             <motion.button
               className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"

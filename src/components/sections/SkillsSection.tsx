@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { personalInfo, skills } from "@/lib/data";
+import { skills } from "@/lib/data";
 import { Code2, Database, Palette, Settings } from "lucide-react";
 
-const skillIcons = {
+const skillIcons: Record<string, any> = {
   frontend: Code2,
   backend: Database,
   database: Database,
@@ -13,13 +13,13 @@ const skillIcons = {
 };
 
 export default function SkillsSection() {
-  const groupedSkills = skills.reduce((acc, skill) => {
+  const groupedSkills = skills.reduce((acc: Record<string, typeof skills>, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = [];
     }
     acc[skill.category].push(skill);
     return acc;
-  }, {});
+  }, {} as Record<string, typeof skills>);
 
   return (
     <section className="py-20 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">

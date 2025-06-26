@@ -6,9 +6,12 @@ import { useParams } from "next/navigation";
 
 const BlogPostPage = () => {
   const params = useParams();
+  // Using slug for future dynamic content loading
+  // eslint-disable-next-line no-unused-vars
   const slug = params.slug;
 
   // Mock blog post data - in a real app, this would be fetched from CMS/API
+  // using the slug: fetch(`/api/posts/${slug}`)
   const blogPost = {
     title: "Building Scalable React Applications with Next.js 14",
     excerpt: "Explore the latest features in Next.js 14 and learn how to build performant, scalable React applications with the new App Router.",

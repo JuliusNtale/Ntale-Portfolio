@@ -74,11 +74,11 @@ const ContactPage = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            Let's Work{" "}
+            Let&apos;s Work{" "}
             <span className="text-primary">Together</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? I'd love to hear about it. Let's discuss how we can 
+            Have a project in mind? I&apos;d love to hear about it. Let&apos;s discuss how we can 
             bring your ideas to life with cutting-edge technology and design.
           </p>
         </motion.div>
@@ -94,8 +94,8 @@ const ContactPage = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
               <p className="text-muted-foreground mb-8">
-                Whether you're looking to build a new application, enhance an existing project, 
-                or just want to say hello, I'm always excited to connect with fellow creators and innovators.
+                Whether you&apos;re looking to build a new application, enhance an existing project, 
+                or just want to say hello, I&apos;m always excited to connect with fellow creators and innovators.
               </p>
             </div>
 
@@ -151,7 +151,7 @@ const ContactPage = () => {
               <div>
                 <h3 className="text-2xl font-bold mb-2">Send a Message</h3>
                 <p className="text-muted-foreground">
-                  Fill out the form below and I'll get back to you as soon as possible.
+                  Fill out the form below and I&apos;ll get back to you as soon as possible.
                 </p>
               </div>
 
