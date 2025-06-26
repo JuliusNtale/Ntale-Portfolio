@@ -2,7 +2,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/transitionProvider";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import WebVitalsTracker from "@/components/WebVitalsTracker";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +46,8 @@ export default function RootLayout({ children }) {
         >
           <TransitionProvider>{children}</TransitionProvider>
           <Analytics />
+          <SpeedInsights />
+          <WebVitalsTracker />
         </ThemeProvider>
       </body>
     </html>

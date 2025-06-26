@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { ArrowDown, Code2, Github, ExternalLink } from "lucide-react";
 import { personalInfo, skills, featuredProjects } from "@/lib/data";
+import { analytics } from "@/lib/analytics";
 
 const Homepage = () => {
   const ref = useRef(null);
@@ -77,12 +78,18 @@ const Homepage = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <Link href="/portfolio">
-                  <button className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                  <button 
+                    className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    onClick={() => analytics.buttonClick('View My Work', 'Hero Section')}
+                  >
                     View My Work
                   </button>
                 </Link>
                 <Link href="/contact">
-                  <button className="px-8 py-4 bg-secondary text-secondary-foreground border border-border rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform hover:scale-105">
+                  <button 
+                    className="px-8 py-4 bg-secondary text-secondary-foreground border border-border rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform hover:scale-105"
+                    onClick={() => analytics.buttonClick('Get In Touch', 'Hero Section')}
+                  >
                     Get In Touch
                   </button>
                 </Link>
@@ -221,11 +228,17 @@ const Homepage = () => {
                   <div className="flex justify-between items-center">
                     <div className="flex gap-2">
                       <Link href={project.githubUrl} target="_blank">
-                        <Github className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+                        <Github 
+                          className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" 
+                          onClick={() => analytics.socialClick('GitHub')}
+                        />
                       </Link>
                       {project.liveUrl && (
                         <Link href={project.liveUrl} target="_blank">
-                          <ExternalLink className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+                          <ExternalLink 
+                            className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors"
+                            onClick={() => analytics.projectView(project.title, project.category)}
+                          />
                         </Link>
                       )}
                     </div>
@@ -243,7 +256,10 @@ const Homepage = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Link href="/portfolio">
-              <button className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+              <button 
+                className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                onClick={() => analytics.buttonClick('View All Projects', 'Featured Projects Section')}
+              >
                 View All Projects
               </button>
             </Link>

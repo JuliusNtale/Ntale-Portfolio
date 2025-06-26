@@ -6,6 +6,7 @@ import { useState } from "react";
 import NavLink from "./navLink";
 import { ThemeToggle } from "./theme-toggle";
 import { motion } from "framer-motion";
+import { analytics } from "@/lib/analytics";
 
 const links = [
   { url: "/", title: "Home" },
@@ -108,16 +109,45 @@ const Navbar = () => {
       <div className="hidden md:flex gap-4 w-1/3 justify-end items-center">
         <ThemeToggle />
         <Link href="https://github.com/JuliusNtale" target="_blank" rel="noopener noreferrer">
-          <Image src="/github.png" alt="GitHub" width={24} height={24} priority className="hover:opacity-80 transition-opacity" />
+          <Image 
+            src="/github.png" 
+            alt="GitHub" 
+            width={24} 
+            height={24} 
+            priority 
+            className="hover:opacity-80 transition-opacity cursor-pointer" 
+            onClick={() => analytics.socialClick('GitHub')}
+          />
         </Link>
         <Link href="https://www.instagram.com/am.jhey" target="_blank" rel="noopener noreferrer">
-          <Image src="/instagram.png" alt="Instagram" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+          <Image 
+            src="/instagram.png" 
+            alt="Instagram" 
+            width={24} 
+            height={24} 
+            className="hover:opacity-80 transition-opacity cursor-pointer"
+            onClick={() => analytics.socialClick('Instagram')}
+          />
         </Link>
         <Link href="https://www.facebook.com/julius.ntale.18/" target="_blank" rel="noopener noreferrer">
-          <Image src="/facebook.png" alt="Facebook" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+          <Image 
+            src="/facebook.png" 
+            alt="Facebook" 
+            width={24} 
+            height={24} 
+            className="hover:opacity-80 transition-opacity cursor-pointer"
+            onClick={() => analytics.socialClick('Facebook')}
+          />
         </Link>
         <Link href="https://www.linkedin.com/in/julius-ntale-aa08902b6/" target="_blank" rel="noopener noreferrer">
-          <Image src="/linkedin.png" alt="LinkedIn" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+          <Image 
+            src="/linkedin.png" 
+            alt="LinkedIn" 
+            width={24} 
+            height={24} 
+            className="hover:opacity-80 transition-opacity cursor-pointer"
+            onClick={() => analytics.socialClick('LinkedIn')}
+          />
         </Link>
       </div>
 
