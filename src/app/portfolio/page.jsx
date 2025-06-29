@@ -230,7 +230,7 @@ const PortfolioPage = () => {
             </text>
           </motion.svg>
           <Link
-            href="/contact"
+            href="/services"
             className="w-20 h-20 md:w-32 md:h-32 absolute top-0 left-0 right-0 bottom-0 m-auto bg-primary text-primary-foreground rounded-full flex items-center justify-center text-lg md:text-xl font-bold hover:bg-primary/90 transition-colors shadow-2xl group"
           >
             <span className="group-hover:scale-110 transition-transform">
