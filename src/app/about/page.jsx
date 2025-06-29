@@ -153,6 +153,35 @@ const AboutPage = () => {
               ))}
             </div>
           </div>
+
+          {/* SERVICES CTA SECTION */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 md:p-12 text-white text-center"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Work Together?
+            </h3>
+            <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+              Let&apos;s turn your ideas into reality. Check out my services and get a custom quote for your project.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/services"
+                className="bg-white text-blue-600 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center transform hover:scale-105"
+              >
+                🚀 View Services & Pricing
+              </a>
+              <a
+                href="/contact"
+                className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
+              >
+                Get Free Consultation
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </motion.div>

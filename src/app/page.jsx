@@ -27,7 +27,7 @@ const Homepage = () => {
       transition={{ duration: 1 }}
     >
       {/* Hero Section */}
-      <div ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-16 lg:pt-0">
         {/* Background Elements */}
         <motion.div 
           style={{ y: yBg }}
@@ -36,23 +36,23 @@ const Homepage = () => {
         <div className="absolute inset-0 bg-grid dark:bg-grid-dark opacity-20" />
         
         {/* Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 py-8 md:py-12">
+          <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
             
             {/* Text Content */}
             <motion.div 
               style={{ y: yText }}
-              className="flex-1 space-y-8"
+              className="flex-1 space-y-6 md:space-y-8 text-center lg:text-left"
             >
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-full text-sm font-medium mb-4">
+                <span className="inline-block px-3 py-2 md:px-4 md:py-2 bg-accent text-accent-foreground rounded-full text-xs md:text-sm font-medium mb-4">
                   👋 Welcome to my digital space
                 </span>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                     Crafting Digital
                   </span>
@@ -64,7 +64,7 @@ const Homepage = () => {
               </motion.div>
 
               <motion.p 
-                className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed mx-auto lg:mx-0"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -73,30 +73,30 @@ const Homepage = () => {
               </motion.p>
 
               <motion.div 
-                className="flex flex-wrap gap-4"
+                className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <Link href="/portfolio">
-                  <button 
-                    className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                    onClick={() => analytics.buttonClick('View My Work', 'Hero Section')}
-                  >
-                    View My Work
-                  </button>
-                </Link>
                 <Link href="/services">
                   <button 
-                    className="px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                    onClick={() => analytics.buttonClick('View Services', 'Hero Section')}
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm md:text-base lg:text-lg"
+                    onClick={() => analytics.buttonClick('View Services & Pricing', 'Hero Section')}
                   >
-                    View Services & Pricing
+                    🚀 View Services & Pricing
+                  </button>
+                </Link>
+                <Link href="/portfolio">
+                  <button 
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-secondary text-secondary-foreground border border-border rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform hover:scale-105 text-sm md:text-base"
+                    onClick={() => analytics.buttonClick('Portfolio', 'Hero Section')}
+                  >
+                    Portfolio
                   </button>
                 </Link>
                 <Link href="/contact">
                   <button 
-                    className="px-8 py-4 bg-secondary text-secondary-foreground border border-border rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform hover:scale-105"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm md:text-base"
                     onClick={() => analytics.buttonClick('Get In Touch', 'Hero Section')}
                   >
                     Get In Touch

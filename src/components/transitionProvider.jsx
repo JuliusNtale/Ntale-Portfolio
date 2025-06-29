@@ -34,10 +34,10 @@ const TransitionProvider = ({ children }) => {
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.5 } }}
         />
-        <div className="h-24 sticky top-0 z-30">
+        <div className="h-16 md:h-20 sticky top-0 z-30">
           <Navbar />
         </div>
-        <div className="h-[calc(100vh-6rem)]">{children}</div>
+        <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]">{children}</div>
       </div>
     </AnimatePresence>
   );

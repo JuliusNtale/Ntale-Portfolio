@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/transitionProvider";
+import FloatingServicesButton from "@/components/FloatingServicesButton";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
           />
           
           <TransitionProvider>{children}</TransitionProvider>
+          <FloatingServicesButton />
           <GoogleAnalytics />
           <Analytics />
           <SpeedInsights />
