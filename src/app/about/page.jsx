@@ -20,7 +20,6 @@ const AboutPage = () => {
     >
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto space-y-20">
-          
           {/* HERO SECTION */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -38,12 +37,12 @@ const AboutPage = () => {
               />
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background" />
             </div>
-            
+
             <div className="space-y-4">
               <h1 className="font-bold text-4xl md:text-6xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 About {personalInfo.name}
               </h1>
-              
+
               <h2 className="text-xl md:text-2xl text-muted-foreground">
                 {personalInfo.title}
               </h2>
@@ -75,7 +74,7 @@ const AboutPage = () => {
             >
               Skills & Technologies
             </motion.h2>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {skills.slice(0, 12).map((skill, index) => (
                 <motion.div
@@ -112,7 +111,7 @@ const AboutPage = () => {
             >
               Professional Experience
             </motion.h2>
-            
+
             <div className="space-y-6">
               {experiences.map((experience, index) => (
                 <motion.div
@@ -129,14 +128,17 @@ const AboutPage = () => {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2 md:mt-0">
                       <Calendar className="w-4 h-4" />
-                      {new Date(experience.startDate).getFullYear()} - {experience.current ? 'Present' : new Date(experience.endDate || Date.now()).getFullYear()}
+                      {new Date(experience.startDate).getFullYear()} -{" "}
+                      {experience.current
+                        ? "Present"
+                        : new Date(experience.endDate || Date.now()).getFullYear()}
                     </div>
                   </div>
-                  
+
                   <p className="text-muted-foreground mb-4">
                     {experience.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     {experience.technologies.map((tech) => (
                       <span

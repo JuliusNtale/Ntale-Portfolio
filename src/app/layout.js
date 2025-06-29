@@ -5,27 +5,12 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import WebVitalsTracker from "@/components/WebVitalsTracker";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import { generateSEO, generatePersonStructuredData, generateWebsiteStructuredData } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Julius Ntale - Full-Stack Developer & Media Producer",
-  description: "Passionate full-stack developer with expertise in modern web technologies and a unique background in media production. Creating engaging digital experiences with React, Next.js, and cutting-edge technologies.",
-  keywords: "Julius Ntale, Full-Stack Developer, React, Next.js, Web Development, Media Production, Uganda Developer",
-  author: "Julius Ntale",
-  openGraph: {
-    title: "Julius Ntale - Full-Stack Developer & Media Producer",
-    description: "Creating engaging digital experiences with modern web technologies",
-    type: "website",
-    locale: "en_US",
-    siteName: "Julius Ntale Portfolio",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Julius Ntale - Full-Stack Developer",
-    description: "Creating engaging digital experiences with modern web technologies",
-  },
-};
+export const metadata = generateSEO();
 
 export default function RootLayout({ children }) {
   return (
@@ -44,7 +29,22 @@ export default function RootLayout({ children }) {
           enableSystem={true}
           disableTransitionOnChange={false}
         >
+          {/* Structured Data */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generatePersonStructuredData()),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateWebsiteStructuredData()),
+            }}
+          />
+          
           <TransitionProvider>{children}</TransitionProvider>
+          <GoogleAnalytics />
           <Analytics />
           <SpeedInsights />
           <WebVitalsTracker />

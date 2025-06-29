@@ -3,16 +3,11 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowLeft, Share2, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const BlogPostPage = () => {
-  const params = useParams();
-  // Using slug for future dynamic content loading
-  // eslint-disable-next-line no-unused-vars
-  const slug = params.slug;
-
-  // Mock blog post data - in a real app, this would be fetched from CMS/API
-  // using the slug: fetch(`/api/posts/${slug}`)
-  const blogPost = {
+// Mock blog posts data
+const blogPosts = {
+  "building-scalable-react-nextjs": {
     title: "Building Scalable React Applications with Next.js 14",
     excerpt: "Explore the latest features in Next.js 14 and learn how to build performant, scalable React applications with the new App Router.",
     category: "Frontend",
@@ -20,100 +15,69 @@ const BlogPostPage = () => {
     readTime: "8 min read",
     author: {
       name: "Julius Ntale",
-      avatar: "/images/profile.jpg",
+      avatar: "/Julius.png",
       bio: "Full-stack developer passionate about React, Next.js, and modern web technologies."
     },
-    content: `
-# Introduction
+    content: `# Introduction
 
 Next.js 14 brings significant improvements to the React development experience, particularly with the enhanced App Router and Server Components. In this comprehensive guide, we'll explore how to leverage these features to build scalable, performant applications.
 
 ## Key Features of Next.js 14
 
 ### 1. Enhanced App Router
-
-The App Router in Next.js 14 provides a more intuitive way to structure your application:
-
-- **File-based routing**: Organize your pages using the file system
-- **Nested layouts**: Create consistent layouts across route segments
-- **Loading and error states**: Built-in support for loading and error UI
+The App Router in Next.js 14 provides a more intuitive way to structure your application.
 
 ### 2. Server Components by Default
-
-React Server Components are now the default in Next.js 14:
-
-\`\`\`jsx
-// This component runs on the server by default
-export default function ServerComponent() {
-  return (
-    <div>
-      <h1>This renders on the server</h1>
-    </div>
-  );
-}
-\`\`\`
+React Server Components are now the default in Next.js 14.
 
 ### 3. Improved Performance
-
-Next.js 14 includes several performance optimizations:
-
-- **Turbopack**: Faster bundling with Turbopack (in beta)
-- **Image optimization**: Enhanced image optimization with the Image component
-- **Code splitting**: Automatic code splitting for better loading times
-
-## Building a Scalable Architecture
-
-When building large applications, consider these architectural patterns:
-
-### Component Organization
-
-\`\`\`
-src/
-├── app/
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-├── components/
-│   ├── ui/
-│   └── sections/
-└── lib/
-    ├── utils.ts
-    └── data.ts
-\`\`\`
-
-### State Management
-
-For complex applications, consider using:
-
-- **Zustand**: Lightweight state management
-- **React Query**: Server state management
-- **Context API**: For component tree state
+Next.js 14 includes several performance optimizations.
 
 ## Best Practices
 
-1. **Use TypeScript**: Type safety is crucial for large applications
-2. **Optimize Images**: Always use the Next.js Image component
-3. **Implement proper error boundaries**: Handle errors gracefully
-4. **Test your components**: Write comprehensive tests
+1. Use TypeScript for type safety
+2. Optimize Images with Next.js Image component
+3. Implement proper error boundaries
+4. Test your components thoroughly
 
 ## Conclusion
-
-Next.js 14 provides an excellent foundation for building scalable React applications. By leveraging Server Components, the App Router, and following best practices, you can create applications that are both performant and maintainable.
-
-The future of React development is bright, and Next.js 14 is leading the way in making it easier to build great user experiences.
-    `,
+Next.js 14 provides an excellent foundation for building scalable React applications.`,
     tags: ["Next.js", "React", "JavaScript", "Web Development", "Performance"],
     relatedPosts: [
       {
         title: "The Future of Web Development: React Server Components",
         slug: "future-web-development-react-server-components"
-      },
-      {
-        title: "TypeScript Best Practices for Large Applications",
-        slug: "typescript-best-practices-large-applications"
       }
     ]
-  };
+  }
+};
+
+const BlogPostPage = () => {
+  const params = useParams();
+  const [blogPost, setBlogPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (params?.slug) {
+      const post = blogPosts[params.slug] || {
+        title: "Blog Post Not Found",
+        excerpt: "The requested blog post could not be found.",
+        category: "General",
+        date: new Date().toISOString().split('T')[0],
+        readTime: "1 min read",
+        author: {
+          name: "Julius Ntale",
+          avatar: "/Julius.png",
+          bio: "Full-stack developer"
+        },
+        content: "This blog post doesn't exist yet. Check back soon for more content!",
+        tags: ["General"],
+        relatedPosts: []
+      };
+      setBlogPost(post);
+      setLoading(false);
+    }
+  }, [params?.slug]);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -122,6 +86,31 @@ The future of React development is bright, and Next.js 14 is leading the way in 
       day: "numeric"
     });
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading blog post...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!blogPost) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">Blog Post Not Found</h1>
+          <p className="text-muted-foreground mb-8">The requested blog post could not be found.</p>
+          <Link href="/blog" className="bg-primary text-primary-foreground px-6 py-3 rounded-lg">
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

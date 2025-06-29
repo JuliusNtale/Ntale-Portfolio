@@ -86,6 +86,14 @@ const Homepage = () => {
                     View My Work
                   </button>
                 </Link>
+                <Link href="/services">
+                  <button 
+                    className="px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    onClick={() => analytics.buttonClick('View Services', 'Hero Section')}
+                  >
+                    View Services & Pricing
+                  </button>
+                </Link>
                 <Link href="/contact">
                   <button 
                     className="px-8 py-4 bg-secondary text-secondary-foreground border border-border rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform hover:scale-105"

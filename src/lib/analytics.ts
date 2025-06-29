@@ -53,6 +53,31 @@ export const analytics = {
   // Track search events (for blog)
   search: (query: string, resultsCount: number) => {
     track('Search', { query, results: resultsCount });
+  },
+
+  // Track service package interactions
+  servicePackageViewed: (packageTitle: string, currency: string) => {
+    track('Service Package Viewed', { package: packageTitle, currency });
+  },
+
+  // Track service inquiries
+  serviceInquiry: (packageTitle: string, currency: string) => {
+    track('Service Inquiry Started', { package: packageTitle, currency });
+  },
+
+  // Track contact from services
+  contactFromServices: () => {
+    track('Contact From Services', {});
+  },
+
+  // Track WhatsApp from services
+  whatsappFromServices: () => {
+    track('WhatsApp From Services', {});
+  },
+
+  // Generic track function for custom events
+  track: (eventName: string, properties: Record<string, any> = {}) => {
+    track(eventName, properties);
   }
 };
 

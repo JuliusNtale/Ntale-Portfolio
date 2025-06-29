@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
+import { emailService } from "@/lib/emailService";
 import { CheckCircle, AlertCircle, Mail } from "lucide-react";
 
 const NewsletterSignup = ({ className = "" }) => {
@@ -11,43 +11,32 @@ const NewsletterSignup = ({ className = "" }) => {
   const [loading, setLoading] = useState(false);
   const form = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
     setSuccess(false);
     setLoading(true);
 
-    // Create a temporary form data object for EmailJS
-    const templateParams = {
-      user_email: email,
-      subject: "Newsletter Subscription",
-      message: `New newsletter subscription from: ${email}`,
-      to_email: "juliusntale30@gmail.com"
-    };
+    try {
+      // Send email using unified service
+      const result = await emailService.sendNewsletterSubscription(email);
 
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_SERVICE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        templateParams,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setSuccess(true);
-          setEmail("");
-          setLoading(false);
-          // Auto-hide success message after 5 seconds
-          setTimeout(() => setSuccess(false), 5000);
-        },
-        (err) => {
-          console.error("Newsletter subscription error:", err);
-          setError(true);
-          setLoading(false);
-          // Auto-hide error message after 5 seconds
-          setTimeout(() => setError(false), 5000);
-        }
-      );
+      if (result.success) {
+        setSuccess(true);
+        setEmail("");
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => setSuccess(false), 5000);
+      } else {
+        throw new Error(result.error || 'Failed to subscribe to newsletter');
+      }
+    } catch (err) {
+      console.error("Newsletter subscription error:", err);
+      setError(true);
+      // Auto-hide error message after 5 seconds
+      setTimeout(() => setError(false), 5000);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (success) {

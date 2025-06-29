@@ -12,28 +12,37 @@ interface SEOProps {
   author?: string;
 }
 
-export function generateSEO({
-  title = "Julius Ntale - Full Stack Developer & Creative Professional",
-  description = "Experienced full-stack developer specializing in React, Next.js, and modern web technologies. Also passionate about photography and videography.",
-  keywords = [
-    "Julius Ntale",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js",
-    "TypeScript",
-    "Web Development",
-    "Software Engineer",
-    "Photography",
-    "Videography",
-    "Uganda Developer"
-  ],
-  image = "/images/og-image.jpg",
-  url = "https://juliusntale.com",
-  type = "website",
-  publishedTime,
-  modifiedTime,
-  author = "Julius Ntale"
-}: SEOProps): Metadata {
+export function generateSEO(props: SEOProps = {}): Metadata {
+  const {
+    title = "Julius Peter Ntale - Full Stack Developer & Media Producer",
+    description = "Passionate full-stack developer from Tanzania specializing in React, Next.js, and modern web technologies. Creating innovative digital solutions with expertise in both development and media production.",
+    keywords = [
+      "Julius Ntale",
+      "Julius Peter Ntale", 
+      "Full Stack Developer",
+      "React Developer",
+      "Next.js Developer",
+      "Web Developer Tanzania",
+      "Dar es Salaam Developer",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Web Development",
+      "Software Engineer",
+      "Media Producer",
+      "Photography",
+      "Videography",
+      "Tanzania Developer",
+      "East Africa Developer",
+      "Portfolio Website"
+    ],
+    image = "/ntale.png",
+    url = "https://ntale-portfolio.vercel.app",
+    type = "website",
+    publishedTime,
+    modifiedTime,
+    author = "Julius Peter Ntale"
+  } = props;
   const siteTitle = title.includes("Julius Ntale") ? title : `${title} | Julius Ntale`;
   
   return {
@@ -94,34 +103,63 @@ export function generatePersonStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Julius Ntale',
-    url: 'https://juliusntale.com',
-    image: 'https://juliusntale.com/images/profile.jpg',
-    jobTitle: 'Full Stack Developer',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Freelance'
-    },
-    sameAs: [
-      'https://github.com/JuliusNtale',
-      'https://linkedin.com/in/juliusntale',
-      'https://twitter.com/juliusntale'
-    ],
-    knowsAbout: [
-      'JavaScript',
-      'TypeScript',
-      'React',
-      'Next.js',
-      'Node.js',
-      'Full Stack Development',
-      'Web Development',
-      'Photography',
-      'Videography'
-    ],
+    name: 'Julius Peter Ntale',
+    givenName: 'Julius',
+    familyName: 'Ntale',
+    additionalName: 'Peter',
+    jobTitle: 'Full-Stack Developer & Media Producer',
+    description: 'Passionate full-stack developer from Tanzania specializing in React, Next.js, and modern web technologies. Creating innovative digital solutions with expertise in both development and media production.',
+    url: 'https://ntale-portfolio.vercel.app',
+    image: 'https://ntale-portfolio.vercel.app/ntale.png',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Kampala',
-      addressCountry: 'Uganda'
+      addressLocality: 'Dar es Salaam',
+      addressCountry: 'Tanzania',
+      postalCode: '24461'
+    },
+    email: 'juliusntale30@gmail.com',
+    telephone: '+255653520829',
+    knowsAbout: [
+      'React',
+      'Next.js', 
+      'JavaScript',
+      'TypeScript',
+      'Node.js',
+      'Web Development',
+      'Full-Stack Development',
+      'Media Production',
+      'Photography',
+      'Videography',
+      'UI/UX Design'
+    ],
+    skills: [
+      'React Development',
+      'Next.js',
+      'TypeScript',
+      'JavaScript',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'PostgreSQL',
+      'AWS',
+      'Git',
+      'Docker'
+    ],
+    sameAs: [
+      'https://github.com/JuliusNtale',
+      'https://www.linkedin.com/in/julius-ntale-aa08902b6/',
+      'https://www.instagram.com/am.jhey',
+      'https://www.facebook.com/julius.ntale.18/'
+    ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Freelance Developer'
+    },
+    nationality: 'Tanzanian',
+    birthPlace: 'Tanzania',
+    alumniOf: {
+      '@type': 'EducationalOrganization',
+      name: 'University of Technology'
     }
   };
 }
@@ -130,14 +168,55 @@ export function generateWebsiteStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Julius Ntale Portfolio',
-    url: 'https://juliusntale.com',
-    description: 'Portfolio website of Julius Ntale, full-stack developer and creative professional',
+    name: 'Julius Peter Ntale Portfolio',
+    description: 'Portfolio website of Julius Peter Ntale, a full-stack developer and media producer from Tanzania',
+    url: 'https://ntale-portfolio.vercel.app',
     author: {
       '@type': 'Person',
-      name: 'Julius Ntale'
+      name: 'Julius Peter Ntale',
+      url: 'https://ntale-portfolio.vercel.app'
     },
-    inLanguage: 'en-US'
+    inLanguage: 'en-US',
+    copyrightYear: new Date().getFullYear(),
+    copyrightHolder: {
+      '@type': 'Person',
+      name: 'Julius Peter Ntale'
+    }
+  };
+}
+
+export function generateProfessionalServiceStructuredData() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'Julius Peter Ntale - Web Development Services',
+    description: 'Professional web development and media production services',
+    url: 'https://ntale-portfolio.vercel.app',
+    telephone: '+255653520829',
+    email: 'juliusntale30@gmail.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Dar es Salaam',
+      addressCountry: 'Tanzania'
+    },
+    areaServed: [
+      'Tanzania',
+      'East Africa',
+      'Global'
+    ],
+    serviceType: [
+      'Web Development',
+      'Full-Stack Development',
+      'React Development', 
+      'Next.js Development',
+      'Media Production',
+      'Photography',
+      'Videography'
+    ],
+    provider: {
+      '@type': 'Person',
+      name: 'Julius Peter Ntale'
+    }
   };
 }
 

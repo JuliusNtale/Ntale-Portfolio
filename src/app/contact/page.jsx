@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { emailService } from "@/lib/emailService";
 import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from "lucide-react";
 
 const ContactPage = () => {
@@ -10,31 +10,39 @@ const ContactPage = () => {
   const [loading, setLoading] = useState(false);
   const form = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setError(false);
     setSuccess(false);
     setLoading(true);
 
-    emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        form.current,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setSuccess(true);
-          form.current.reset();
-          setLoading(false);
-        },
-        (err) => {
-          console.error("Email sending error:", err);
-          setError(true);
-          setLoading(false);
-        }
-      );
+    try {
+      // Get form data
+      const formData = new FormData(form.current);
+      const contactData = {
+        name: formData.get('user_name'),
+        email: formData.get('user_email'),
+        phone: formData.get('user_phone') || '',
+        company: formData.get('user_company') || '',
+        subject: formData.get('subject') || 'General Inquiry',
+        message: formData.get('message')
+      };
+
+      // Send email using unified service
+      const result = await emailService.sendContactMessage(contactData);
+
+      if (result.success) {
+        setSuccess(true);
+        form.current.reset();
+      } else {
+        throw new Error(result.error || 'Failed to send message');
+      }
+    } catch (err) {
+      console.error("Email sending error:", err);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const contactInfo = [
