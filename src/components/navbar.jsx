@@ -99,7 +99,7 @@ const Navbar = () => {
           className="text-sm bg-gradient-to-r from-primary to-accent rounded-lg p-2 font-bold flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
         >
           <span className="text-white mr-1">Julius</span>
-          <span className="w-12 h-8 rounded bg-background/20 backdrop-blur-sm text-white flex items-center justify-center">
+          <span className="w-12 h-8 rounded bg-background/20 backdrop-blur-sm text-black flex items-center justify-center">
             NTALE
           </span>
         </Link>

@@ -30,11 +30,11 @@ const AboutPage = () => {
           >
             <div className="relative w-32 h-32 mx-auto">
               <Image
-                src={personalInfo.avatar}
+                src="/Julius.png"
                 alt={personalInfo.name}
                 width={128}
                 height={128}
-                className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-2xl"
+                className="w-32 h-32 rounded-full object-cover object-top border-4 border-primary/20 shadow-2xl"
               />
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background" />
             </div>

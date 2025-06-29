@@ -1,14 +1,14 @@
 import { PersonalInfo, Skill, Experience, Project } from '@/types';
 
 export const personalInfo: PersonalInfo = {
-  name: "Julius Ntale",
+  name: "Julius Peter Ntale",
   title: "Full-Stack Developer & Media Producer",
   bio: "Passionate full-stack developer with expertise in modern web technologies and a unique background in media production. I create engaging digital experiences that bridge technology and creativity, specializing in React, Next.js, and full-stack development.",
-  location: "Uganda",
-  email: "juliusntale@example.com", // Replace with your actual email
+  location: "Dar es Salaam, Tanzania",
+  email: "juliusntale30@gmail.com",
   website: "https://ntale-portfolio.vercel.app",
   resume: "/resume.pdf",
-  avatar: "/Julius.png",
+  avatar: "/ntale.png",
   socialLinks: [
     {
       name: "GitHub",

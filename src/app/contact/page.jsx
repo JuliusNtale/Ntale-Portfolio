@@ -41,19 +41,19 @@ const ContactPage = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@juliusntale.com",
-      href: "mailto:hello@juliusntale.com"
+      value: "juliusntale30@gmail.com",
+      href: "mailto:juliusntale30@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+256 700 000 000",
-      href: "tel:+256700000000"
+      value: "+255 653 520 829",
+      href: "tel:+255653520829"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Kampala, Uganda",
+      value: "Dar es Salaam, Tanzania",
       href: "#"
     }
   ];
@@ -122,17 +122,46 @@ const ContactPage = () => {
             <div className="mt-12">
               <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
               <div className="flex space-x-4">
-                {["GitHub", "LinkedIn", "Twitter", "Instagram"].map((platform) => (
-                  <motion.a
-                    key={platform}
-                    href="#"
-                    className="p-3 bg-accent rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    {platform}
-                  </motion.a>
-                ))}
+                <motion.a
+                  href="https://github.com/JuliusNtale"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-accent rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  GitHub
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/julius-ntale-aa08902b6/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-accent rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  LinkedIn
+                </motion.a>
+                <motion.a
+                  href="https://www.instagram.com/am.jhey"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-accent rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Instagram
+                </motion.a>
+                <motion.a
+                  href="https://www.facebook.com/julius.ntale.18/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-accent rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Facebook
+                </motion.a>
               </div>
             </div>
           </motion.div>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -183,32 +184,7 @@ const BlogPage = () => {
         </motion.div>
 
         {/* Newsletter Signup */}
-        <motion.div
-          className="mt-20 text-center"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-8 lg:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">
-              Stay Updated
-            </h2>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Get the latest articles and tutorials delivered straight to your inbox. 
-              No spam, just quality content about web development and technology.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <button className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </motion.div>
+        <NewsletterSignup className="mt-20 max-w-4xl mx-auto" />
       </div>
     </motion.div>
   );

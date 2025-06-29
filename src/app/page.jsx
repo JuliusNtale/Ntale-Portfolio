@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { ArrowDown, Code2, Github, ExternalLink } from "lucide-react";
 import { personalInfo, skills, featuredProjects } from "@/lib/data";
 import { analytics } from "@/lib/analytics";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const Homepage = () => {
   const ref = useRef(null);
@@ -265,6 +266,11 @@ const Homepage = () => {
             </Link>
           </motion.div>
         </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+        <NewsletterSignup className="max-w-4xl mx-auto" />
       </section>
     </motion.div>
   );
