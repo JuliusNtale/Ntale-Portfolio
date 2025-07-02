@@ -15,7 +15,12 @@ import {
   FaArrowRight,
   FaClock,
   FaUsers,
-  FaShieldAlt
+  FaShieldAlt,
+  FaInfoCircle,
+  FaChevronDown,
+  FaChevronUp,
+  FaLightbulb,
+  FaRocket
 } from "react-icons/fa";
 import { analytics } from "@/lib/analytics";
 import ServiceQuoteForm from "@/components/ServiceQuoteForm";
@@ -25,6 +30,7 @@ const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [selectedPackageForQuote, setSelectedPackageForQuote] = useState("");
+  const [expandedService, setExpandedService] = useState(null);
 
   // Exchange rate (approximate)
   const exchangeRate = 2500; // 1 USD = 2500 TSH (approximate)
@@ -49,12 +55,23 @@ const Services = () => {
       features: [
         "Up to 5 pages (Home, About, Services, Contact, Blog)",
         "Responsive mobile-friendly design",
-        "Basic SEO optimization",
+        "Basic SEO optimization", 
         "Contact form integration",
         "Social media links",
         "1 month free support",
         "Basic analytics setup"
       ],
+      detailedExplanation: {
+        whatYouGet: "A professional website that looks great on phones, tablets, and computers. Your customers can easily find information about your business and contact you.",
+        whyImportant: "In today's digital world, 85% of customers research businesses online before visiting. A professional website builds trust and credibility.",
+        perfectFor: "New businesses, freelancers, or anyone who needs an online presence to attract customers and look professional.",
+        technicalBenefits: [
+          "Mobile-responsive design ensures customers can browse on any device",
+          "SEO optimization helps people find you on Google searches",
+          "Contact forms make it easy for customers to reach you",
+          "Fast loading speeds keep visitors engaged"
+        ]
+      },
       ideal: "Personal portfolios, small businesses, freelancers",
       icon: FaGlobe,
       popular: false
@@ -76,6 +93,18 @@ const Services = () => {
         "3 months free support",
         "Basic e-commerce (up to 10 products)"
       ],
+      detailedExplanation: {
+        whatYouGet: "A complete business website with online store capabilities, customer management tools, and advanced marketing features to grow your business.",
+        whyImportant: "Businesses with professional websites generate 40% more revenue than those without. This package includes everything needed to compete online.",
+        perfectFor: "Established businesses ready to expand their online presence, capture leads, and sell products or services online.",
+        technicalBenefits: [
+          "Content Management System lets you update content without technical knowledge",
+          "SEO optimization improves Google ranking and brings more customers",
+          "E-commerce functionality allows you to sell products online 24/7",
+          "Analytics tracking shows which marketing efforts bring the best results",
+          "Newsletter integration helps you stay connected with customers"
+        ]
+      },
       ideal: "Small to medium businesses, online stores",
       icon: FaCode,
       popular: true
@@ -83,7 +112,7 @@ const Services = () => {
     {
       category: "web",
       title: "Enterprise Solution",
-      subtitle: "For Large Companies",
+      subtitle: "For Large Companies & E-commerce",
       price: 2000,
       duration: "4-6 weeks",
       features: [
@@ -97,8 +126,41 @@ const Services = () => {
         "6 months free support",
         "Performance optimization",
         "Security features",
-        "Admin panel"
+        "Admin panel",
+        "Multi-language support",
+        "Advanced analytics & reporting"
       ],
+      detailedExplanation: {
+        whatYouGet: "A powerful, scalable website or web application with enterprise-level features, security, and performance. Perfect for serious businesses and e-commerce operations.",
+        whyImportant: "Large businesses need robust, secure, and scalable solutions. This package provides enterprise-grade features that can handle high traffic and complex business processes.",
+        perfectFor: "Established companies, large e-commerce stores, SaaS applications, or businesses with complex operational needs.",
+        technicalBenefits: [
+          "Custom functionality tailored to your specific business processes",
+          "Advanced security features protect customer data and business information",
+          "Payment gateway integration enables secure online transactions",
+          "User dashboards provide personalized experiences for customers",
+          "Performance optimization ensures fast loading even with high traffic",
+          "Admin panel gives you complete control over your website and business data",
+          "Multi-language support helps you reach international markets"
+        ]
+      },
+      geoOptimization: {
+        targetMarkets: ["Tanzania", "East Africa", "Kenya", "Uganda", "Rwanda", "Global"],
+        localSeoFeatures: [
+          "Multi-language support (English, Swahili, French)",
+          "Local payment gateway integration (M-Pesa, Tigo Pesa, Airtel Money)",
+          "Currency conversion and local pricing",
+          "Local business schema markup",
+          "Google My Business integration",
+          "Regional shipping and tax calculation"
+        ],
+        aiOptimization: [
+          "Structured data for better AI search visibility",
+          "FAQ integration for AI search engines",
+          "Local business optimization for AI recommendations",
+          "Voice search optimization for mobile users"
+        ]
+      },
       ideal: "Large businesses, e-commerce platforms, SaaS",
       icon: FaDatabase,
       popular: false
@@ -120,6 +182,18 @@ const Services = () => {
         "App store submission",
         "2 months support"
       ],
+      detailedExplanation: {
+        whatYouGet: "A mobile app that works on both iPhone and Android phones. Perfect for simple business needs like showcasing services, collecting customer information, or basic functionality.",
+        whyImportant: "Mobile apps provide direct access to your customers' phones. 90% of mobile time is spent in apps, making them more engaging than mobile websites.",
+        perfectFor: "Businesses wanting to test app concepts, simple service apps, or basic customer engagement tools.",
+        technicalBenefits: [
+          "Cross-platform development saves money compared to separate iOS and Android apps",
+          "Push notifications keep customers engaged with your business",
+          "Local data storage allows the app to work even without internet",
+          "App store presence increases business credibility",
+          "Direct customer communication channel"
+        ]
+      },
       ideal: "Simple apps, MVPs, proof of concepts",
       icon: FaMobile,
       popular: false
@@ -142,6 +216,29 @@ const Services = () => {
         "App store optimization",
         "4 months support"
       ],
+      detailedExplanation: {
+        whatYouGet: "A professional, full-featured mobile app with user accounts, real-time data, advanced features, and beautiful design. Comparable to apps from major companies.",
+        whyImportant: "Professional mobile apps can transform your business by automating processes, improving customer experience, and creating new revenue streams.",
+        perfectFor: "Established businesses ready to leverage mobile technology for growth, customer service improvement, or new business models.",
+        technicalBenefits: [
+          "User authentication creates personalized experiences for each customer",
+          "Database integration ensures real-time, synchronized data across all devices",
+          "API integrations connect your app to existing business systems",
+          "Advanced analytics show how customers use your app",
+          "App store optimization helps your app rank higher in search results",
+          "Native performance ensures smooth, fast user experience"
+        ]
+      },
+      geoOptimization: {
+        targetMarkets: ["Tanzania", "East Africa", "Kenya", "Uganda", "Global"],
+        localFeatures: [
+          "Mobile money integration (M-Pesa, Tigo Pesa, Airtel Money)",
+          "Swahili and English language support",
+          "Offline functionality for areas with poor internet",
+          "Local SMS integration for notifications",
+          "Regional app store optimization"
+        ]
+      },
       ideal: "Business apps, social platforms, marketplaces",
       icon: FaMobile,
       popular: true
@@ -165,9 +262,84 @@ const Services = () => {
         "Monthly progress reports",
         "3 months monitoring"
       ],
+      detailedExplanation: {
+        whatYouGet: "Professional optimization of your website to rank higher on Google and other search engines. More people will find your business when searching online.",
+        whyImportant: "75% of people never scroll past the first page of Google results. Good SEO can increase your website traffic by 200-500% within 6 months.",
+        perfectFor: "Businesses with existing websites that want more customers from Google searches, or new websites that need to be found online.",
+        technicalBenefits: [
+          "Keyword research identifies exactly what your customers are searching for",
+          "Technical SEO fixes ensure Google can properly read and index your website",
+          "Local SEO helps customers in your area find your business",
+          "Content optimization improves your website's relevance for important searches",
+          "Monthly reports show your progress and return on investment",
+          "Google Search Console provides ongoing insights into your website's performance"
+        ]
+      },
+      geoOptimization: {
+        localSeoFeatures: [
+          "Tanzania-specific keyword research and optimization",
+          "Google My Business optimization for local searches",
+          "Swahili and English content optimization",
+          "Local citation building and directory submissions",
+          "Regional competitor analysis and strategy"
+        ]
+      },
       ideal: "Existing websites needing better visibility",
       icon: FaSearch,
       popular: false
+    },
+
+    {
+      category: "marketing",
+      title: "Premium SEO + Digital Marketing",
+      subtitle: "Complete Digital Growth Package",
+      price: 800,
+      duration: "4-6 weeks",
+      features: [
+        "Advanced SEO optimization",
+        "Content marketing strategy",
+        "Social media optimization",
+        "Google Ads setup & optimization",
+        "Email marketing integration",
+        "Conversion rate optimization",
+        "Analytics & tracking setup",
+        "Competitor analysis",
+        "Monthly strategy sessions",
+        "6 months ongoing support"
+      ],
+      detailedExplanation: {
+        whatYouGet: "A comprehensive digital marketing strategy that includes SEO, content marketing, social media, and paid advertising to maximize your online growth.",
+        whyImportant: "Integrated digital marketing can increase leads by 300-500%. This package covers all major channels to ensure consistent growth.",
+        perfectFor: "Businesses serious about digital growth, companies launching new products, or established businesses wanting to dominate their market online.",
+        technicalBenefits: [
+          "Multi-channel approach maximizes reach and effectiveness",
+          "Conversion optimization turns more visitors into customers",
+          "Advanced analytics provide detailed insights into customer behavior",
+          "Competitor analysis reveals opportunities your competition is missing",
+          "Email marketing automation nurtures leads into customers",
+          "Google Ads provide immediate visibility while SEO builds long-term results"
+        ]
+      },
+      geoOptimization: {
+        targetMarkets: ["Tanzania", "East Africa", "Kenya", "Uganda", "Rwanda", "Global"],
+        localMarketingFeatures: [
+          "Multi-language content strategy (English, Swahili, French)",
+          "Regional social media optimization",
+          "Local influencer collaboration strategies",
+          "Cross-border e-commerce optimization",
+          "Regional payment method integration marketing",
+          "Cultural adaptation for different East African markets"
+        ],
+        aiOptimization: [
+          "AI-powered content optimization for better search visibility",
+          "Voice search optimization for mobile users",
+          "Structured data implementation for rich search results",
+          "FAQ optimization for AI search engines like ChatGPT and Perplexity"
+        ]
+      },
+      ideal: "Growing businesses, competitive markets, e-commerce",
+      icon: FaSearch,
+      popular: true
     },
 
     // Media Production
@@ -186,6 +358,18 @@ const Services = () => {
         "Commercial usage rights",
         "Quick 48-hour delivery"
       ],
+      detailedExplanation: {
+        whatYouGet: "Professional photography for your business, products, events, or personal needs. All photos are professionally edited and delivered in high quality.",
+        whyImportant: "Professional photos increase customer trust by 200%. Good visuals are essential for marketing, websites, and social media success.",
+        perfectFor: "Businesses needing product photos, professional headshots, event coverage, or marketing materials.",
+        technicalBenefits: [
+          "High-resolution images work perfectly for print and digital marketing",
+          "Professional editing ensures consistent, polished results",
+          "Commercial usage rights allow you to use photos for business purposes",
+          "Online gallery makes it easy to share and download photos",
+          "Quick delivery keeps your projects on schedule"
+        ]
+      },
       ideal: "Events, portraits, product photography",
       icon: FaCamera,
       popular: false
@@ -206,9 +390,67 @@ const Services = () => {
         "2 rounds of revisions",
         "Commercial usage rights"
       ],
+      detailedExplanation: {
+        whatYouGet: "Professional video production for marketing, training, events, or promotional content. Includes filming, editing, and post-production.",
+        whyImportant: "Video content gets 1200% more shares than text and images combined. Professional videos can increase conversion rates by 80%.",
+        perfectFor: "Businesses wanting to create promotional videos, training content, event coverage, or social media marketing videos.",
+        technicalBenefits: [
+          "Professional equipment ensures broadcast-quality results",
+          "Color correction and editing create polished, professional appearance",
+          "Multiple format delivery ensures compatibility across all platforms",
+          "Background music and audio optimization improve viewer engagement",
+          "Commercial usage rights allow unlimited business use"
+        ]
+      },
       ideal: "Corporate videos, advertisements, events",
       icon: FaVideo,
       popular: false
+    },
+    
+    {
+      category: "media",
+      title: "Premium Media Production",
+      subtitle: "Complete Visual Content Strategy",
+      price: 1200,
+      duration: "2-3 weeks",
+      features: [
+        "Professional photography + videography",
+        "Brand story development",
+        "Multi-platform content creation",
+        "Drone footage (if applicable)",
+        "Advanced editing and effects",
+        "Social media content package",
+        "Marketing materials design",
+        "Brand guideline documentation",
+        "6 months usage consultation",
+        "Content calendar planning"
+      ],
+      detailedExplanation: {
+        whatYouGet: "A complete visual content strategy including photography, videography, and marketing materials designed to elevate your brand across all platforms.",
+        whyImportant: "Consistent, professional visual branding can increase business recognition by 80% and revenue by 23%. This comprehensive package ensures cohesive brand presentation.",
+        perfectFor: "Businesses launching rebranding efforts, companies wanting professional marketing materials, or established businesses ready to elevate their visual presence.",
+        technicalBenefits: [
+          "Brand story development creates emotional connection with customers",
+          "Multi-platform optimization ensures content works on all social media and marketing channels",
+          "Professional drone footage adds unique perspective and visual appeal",
+          "Brand guidelines ensure consistent visual identity across all materials",
+          "Content calendar planning provides ongoing strategy for sustained engagement",
+          "Advanced editing creates standout content that differentiates from competitors"
+        ]
+      },
+      geoOptimization: {
+        targetMarkets: ["Tanzania", "East Africa", "Kenya", "Uganda", "Global"],
+        localContentFeatures: [
+          "Cultural sensitivity and local market understanding",
+          "Multi-language content creation (English, Swahili)",
+          "Regional industry expertise and best practices",
+          "Local talent and location sourcing",
+          "Cross-cultural brand messaging strategies"
+        ]
+      },
+      ideal: "Brand development, marketing campaigns, corporate identity",
+      icon: FaVideo,
+      popular: true
     }
   ];
 
@@ -376,6 +618,119 @@ const Services = () => {
                     </ul>
                   </div>
 
+                  {/* Detailed Explanation Section */}
+                  {pkg.detailedExplanation && (
+                    <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <div className="flex items-center mb-3">
+                        <FaLightbulb className="w-4 h-4 text-blue-600 mr-2" />
+                        <span className="font-semibold text-sm text-blue-800 dark:text-blue-200">Why This Matters:</span>
+                      </div>
+                      <p className="text-sm text-blue-700 dark:text-blue-300 mb-3">
+                        {pkg.detailedExplanation.whyImportant}
+                      </p>
+                      
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setExpandedService(expandedService === index ? null : index);
+                        }}
+                        className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center transition-colors"
+                      >
+                        {expandedService === index ? (
+                          <>
+                            Hide Details <FaChevronUp className="ml-1 w-3 h-3" />
+                          </>
+                        ) : (
+                          <>
+                            Learn More <FaChevronDown className="ml-1 w-3 h-3" />
+                          </>
+                        )}
+                      </button>
+
+                      {expandedService === index && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="mt-4 space-y-3"
+                        >
+                          <div>
+                            <h5 className="font-semibold text-sm text-blue-800 dark:text-blue-200 mb-2">What You&apos;ll Get:</h5>
+                            <p className="text-sm text-blue-700 dark:text-blue-300">
+                              {pkg.detailedExplanation.whatYouGet}
+                            </p>
+                          </div>
+                          
+                          <div>
+                            <h5 className="font-semibold text-sm text-blue-800 dark:text-blue-200 mb-2">Perfect For:</h5>
+                            <p className="text-sm text-blue-700 dark:text-blue-300">
+                              {pkg.detailedExplanation.perfectFor}
+                            </p>
+                          </div>
+
+                          <div>
+                            <h5 className="font-semibold text-sm text-blue-800 dark:text-blue-200 mb-2">Key Benefits:</h5>
+                            <ul className="space-y-1">
+                              {pkg.detailedExplanation.technicalBenefits.map((benefit, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <FaRocket className="w-3 h-3 text-blue-600 mr-2 mt-1 flex-shrink-0" />
+                                  <span className="text-xs text-blue-700 dark:text-blue-300">{benefit}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* GEO Optimization Features for Premium Services */}
+                          {pkg.geoOptimization && (
+                            <div className="mt-4 p-3 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                              <div className="flex items-center mb-2">
+                                <FaRocket className="w-4 h-4 text-green-600 mr-2" />
+                                <span className="font-semibold text-sm text-green-800 dark:text-green-200">Premium GEO Features:</span>
+                              </div>
+                              
+                              {pkg.geoOptimization.targetMarkets && (
+                                <div className="mb-2">
+                                  <span className="text-xs font-medium text-green-700 dark:text-green-300">Service Areas: </span>
+                                  <span className="text-xs text-green-600 dark:text-green-400">
+                                    {pkg.geoOptimization.targetMarkets.join(", ")}
+                                  </span>
+                                </div>
+                              )}
+
+                              {pkg.geoOptimization.localSeoFeatures && (
+                                <div className="mb-2">
+                                  <span className="text-xs font-medium text-green-700 dark:text-green-300">Local SEO Features:</span>
+                                  <ul className="mt-1 space-y-1">
+                                    {pkg.geoOptimization.localSeoFeatures.map((feature, idx) => (
+                                      <li key={idx} className="flex items-start">
+                                        <FaCheckCircle className="w-2 h-2 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                                        <span className="text-xs text-green-600 dark:text-green-400">{feature}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+
+                              {pkg.geoOptimization.aiOptimization && (
+                                <div>
+                                  <span className="text-xs font-medium text-green-700 dark:text-green-300">AI Search Optimization:</span>
+                                  <ul className="mt-1 space-y-1">
+                                    {pkg.geoOptimization.aiOptimization.map((feature, idx) => (
+                                      <li key={idx} className="flex items-start">
+                                        <FaRocket className="w-2 h-2 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                                        <span className="text-xs text-green-600 dark:text-green-400">{feature}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </motion.div>
+                      )}
+                    </div>
+                  )}
+
                   {/* Ideal For */}
                   <div className="mb-6 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="flex items-center mb-2">
@@ -396,6 +751,126 @@ const Services = () => {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Educational Section - Understanding Digital Services */}
+          <motion.div
+            className="mb-16 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="text-center mb-8">
+              <FaInfoCircle className="w-12 h-12 mx-auto mb-4 text-blue-600" />
+              <h3 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+                Understanding Digital Services for Your Business
+              </h3>
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Not sure which service is right for you? Here&apos;s a simple guide to help you understand 
+                how each digital solution can transform your business.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+                <FaGlobe className="w-8 h-8 text-blue-600 mb-4" />
+                <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">
+                  Website Development
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <strong>What it is:</strong> Your digital storefront that&apos;s open 24/7.
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <strong>Why you need it:</strong> 81% of customers research online before buying. 
+                  No website = lost customers.
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <strong>Best for:</strong> Any business wanting to be found online and build credibility.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+                <FaMobile className="w-8 h-8 text-purple-600 mb-4" />
+                <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">
+                  Mobile Apps
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <strong>What it is:</strong> A dedicated app for your customers&apos; phones.
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <strong>Why you need it:</strong> People spend 90% of mobile time in apps. 
+                  Direct access to customers.
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <strong>Best for:</strong> Businesses wanting direct customer engagement and loyalty.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+                <FaSearch className="w-8 h-8 text-green-600 mb-4" />
+                <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">
+                  SEO & Marketing
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <strong>What it is:</strong> Making your business easy to find on Google.
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <strong>Why you need it:</strong> 68% of online experiences begin with a search engine. 
+                  Be found or be forgotten.
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <strong>Best for:</strong> Businesses competing for customers online.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+                <FaCamera className="w-8 h-8 text-red-600 mb-4" />
+                <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">
+                  Media Production
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <strong>What it is:</strong> Professional photos and videos for your brand.
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  <strong>Why you need it:</strong> Visual content gets 94% more views. 
+                  Professional visuals = professional business.
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <strong>Best for:</strong> Businesses wanting to stand out and build trust.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg max-w-4xl mx-auto">
+                <FaLightbulb className="w-8 h-8 text-yellow-500 mx-auto mb-4" />
+                <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">
+                  Still Not Sure Which Service You Need?
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  No problem! Most successful businesses use a combination of these services. 
+                  I offer free consultations to help you understand exactly what your business needs 
+                  and create a custom plan that fits your budget and goals.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowQuoteForm(true)}
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+                  >
+                    Get Free Consultation
+                    <FaArrowRight className="ml-2 w-4 h-4" />
+                  </button>
+                  <a
+                    href="https://wa.me/255653520829?text=Hi Julius, I'd like to discuss my digital needs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-2 border-blue-600 text-blue-600 py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center"
+                  >
+                    WhatsApp Chat
+                  </a>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Payment Information */}
@@ -486,6 +961,65 @@ const Services = () => {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* GEO Content for AI Search Engines */}
+      <div className="sr-only" aria-hidden="true">
+        <h2>Julius Peter Ntale Professional Services - Tanzania East Africa</h2>
+        <p>
+          Julius Peter Ntale offers comprehensive digital services in Dar es Salaam, Tanzania, 
+          serving clients across East Africa and globally. Services include web development, 
+          mobile app development, SEO optimization, and media production with local expertise 
+          and international standards.
+        </p>
+        
+        <h3>Web Development Services Tanzania</h3>
+        <p>
+          Professional website development services starting from $300 USD. Includes responsive 
+          design, SEO optimization, e-commerce functionality, and content management systems. 
+          Serving small businesses, enterprises, and startups across Tanzania, Kenya, Uganda, 
+          Rwanda, and international markets through remote collaboration.
+        </p>
+        
+        <h3>Mobile App Development East Africa</h3>
+        <p>
+          Cross-platform mobile application development for iOS and Android devices. Starting 
+          from $1200 USD, includes user authentication, database integration, push notifications, 
+          and app store submission. Specialized in mobile money integration (M-Pesa, Tigo Pesa, 
+          Airtel Money) for East African markets.
+        </p>
+        
+        <h3>SEO and Digital Marketing Tanzania</h3>
+        <p>
+          Search engine optimization and digital marketing services from $400 USD. Includes 
+          keyword research, on-page optimization, local SEO for Tanzania businesses, Google 
+          My Business optimization, and multi-language content strategy (English, Swahili). 
+          Premium packages include AI search optimization for modern search engines.
+        </p>
+        
+        <h3>Media Production Services</h3>
+        <p>
+          Professional photography and videography services starting from $200 USD. Includes 
+          commercial photography, corporate videos, brand development, and multi-platform 
+          content creation. Culturally sensitive content creation for East African markets 
+          with international appeal.
+        </p>
+        
+        <h3>Geographic Service Coverage</h3>
+        <p>
+          Primary service area: Dar es Salaam, Tanzania. Extended coverage: Nairobi Kenya, 
+          Kampala Uganda, Kigali Rwanda, Bujumbura Burundi. Remote services available globally 
+          with flexible timezone accommodation. Payment options include USD, Tanzanian Shilling, 
+          mobile money, bank transfers, and cryptocurrency.
+        </p>
+        
+        <h3>Premium GEO Features</h3>
+        <p>
+          Advanced services include AI search optimization, multi-language SEO (English, Swahili, 
+          French), local payment gateway integration, voice search optimization, structured data 
+          implementation, and regional market analysis. Specialized in helping East African 
+          businesses reach both local and international markets.
+        </p>
+      </div>
 
       {/* Quote Form Modal */}
       {showQuoteForm && (

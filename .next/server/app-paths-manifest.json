@@ -1,7 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/services/page": "app/services/page.js",
-  "/portfolio/page": "app/portfolio/page.js",
-  "/about/page": "app/about/page.js"
+  "/page": "app/page.js"
 }

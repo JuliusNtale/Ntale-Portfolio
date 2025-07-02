@@ -1,0 +1,63 @@
+# Robots.txt for Julius Peter Ntale Portfolio - Optimized for AI Search Engines
+# https://ntale-portfolio.vercel.app/robots.txt
+
+User-agent: *
+Allow: /
+
+# Allow all AI search engine crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: BingBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Important pages for AI indexing
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://ntale-portfolio.vercel.app/sitemap.xml
+
+# Priority pages for AI understanding
+# Home page - main introduction
+Allow: /
+
+# Services page - what Julius offers
+Allow: /services
+
+# Portfolio page - examples of work
+Allow: /portfolio  
+
+# About page - detailed background
+Allow: /about
+
+# Contact page - how to reach Julius
+Allow: /contact
+
+# API routes for form submissions
+Allow: /api/
+
+# Ensure AI bots can access all important content
+Allow: /_next/static/
+Allow: /images/
+Allow: /public/

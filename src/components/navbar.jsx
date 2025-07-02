@@ -85,79 +85,101 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl bg-background/95 backdrop-blur-md border-b border-border/50">
-      {/* LINKS */}
-      <div className="hidden md:flex gap-4 w-1/3">
-        {links.map((link) => (
+    <div className="sticky top-0 z-50 h-16 flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 text-xl bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm relative">
+      {/* LEFT NAVIGATION LINKS */}
+      <div className="hidden lg:flex gap-2 xl:gap-4 flex-1 justify-start">
+        {links.slice(0, 4).map((link) => (
           <NavLink link={link} key={link.title} />
         ))}
       </div>
 
-      {/* LOGO */}
-      <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
+      {/* CENTERED LOGO */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 flex-shrink-0">
         <Link
           href="/"
-          className="text-sm bg-gradient-to-r from-primary to-accent rounded-lg p-2 font-bold flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          className="text-sm bg-gradient-to-r from-primary to-accent rounded-lg p-2 font-bold flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative z-10"
         >
-          <span className="text-white mr-1">Julius</span>
-          <span className="w-12 h-8 rounded bg-background/20 backdrop-blur-sm text-black flex items-center justify-center">
+          <span className="text-white mr-1 text-xs sm:text-sm">Julius</span>
+          <span className="w-10 sm:w-12 h-6 sm:h-8 rounded bg-background/20 backdrop-blur-sm text-black flex items-center justify-center text-xs sm:text-sm font-bold">
             NTALE
           </span>
         </Link>
       </div>
 
-      {/* SOCIAL & THEME TOGGLE */}
-      <div className="hidden md:flex gap-4 w-1/3 justify-end items-center">
+      {/* RIGHT NAVIGATION LINKS */}
+      <div className="hidden lg:flex gap-2 xl:gap-4 flex-1 justify-end">
+        {links.slice(4).map((link) => (
+          <NavLink link={link} key={link.title} />
+        ))}
+      </div>
+
+      {/* DESKTOP SOCIAL & THEME TOGGLE */}
+      <div className="hidden md:flex gap-3 items-center ml-4 flex-shrink-0">
         <ThemeToggle />
-        <Link href="https://github.com/JuliusNtale" target="_blank" rel="noopener noreferrer">
-          <Image 
-            src="/github.png" 
-            alt="GitHub" 
-            width={24} 
-            height={24} 
-            priority 
-            className="hover:opacity-80 transition-opacity cursor-pointer" 
-            onClick={() => analytics.socialClick('GitHub')}
-          />
-        </Link>
-        <Link href="https://www.instagram.com/am.jhey" target="_blank" rel="noopener noreferrer">
-          <Image 
-            src="/instagram.png" 
-            alt="Instagram" 
-            width={24} 
-            height={24} 
-            className="hover:opacity-80 transition-opacity cursor-pointer"
-            onClick={() => analytics.socialClick('Instagram')}
-          />
-        </Link>
-        <Link href="https://www.facebook.com/julius.ntale.18/" target="_blank" rel="noopener noreferrer">
-          <Image 
-            src="/facebook.png" 
-            alt="Facebook" 
-            width={24} 
-            height={24} 
-            className="hover:opacity-80 transition-opacity cursor-pointer"
-            onClick={() => analytics.socialClick('Facebook')}
-          />
-        </Link>
-        <Link href="https://www.linkedin.com/in/julius-ntale-aa08902b6/" target="_blank" rel="noopener noreferrer">
-          <Image 
-            src="/linkedin.png" 
-            alt="LinkedIn" 
-            width={24} 
-            height={24} 
-            className="hover:opacity-80 transition-opacity cursor-pointer"
-            onClick={() => analytics.socialClick('LinkedIn')}
-          />
+        <div className="flex gap-2">
+          <Link href="https://github.com/JuliusNtale" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src="/github.png" 
+              alt="GitHub" 
+              width={20} 
+              height={20} 
+              priority 
+              className="hover:opacity-80 transition-opacity cursor-pointer" 
+              onClick={() => analytics.socialClick('GitHub')}
+            />
+          </Link>
+          <Link href="https://www.instagram.com/am.jhey" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src="/instagram.png" 
+              alt="Instagram" 
+              width={20} 
+              height={20} 
+              className="hover:opacity-80 transition-opacity cursor-pointer"
+              onClick={() => analytics.socialClick('Instagram')}
+            />
+          </Link>
+          <Link href="https://www.facebook.com/julius.ntale.18/" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src="/facebook.png" 
+              alt="Facebook" 
+              width={20} 
+              height={20} 
+              className="hover:opacity-80 transition-opacity cursor-pointer"
+              onClick={() => analytics.socialClick('Facebook')}
+            />
+          </Link>
+          <Link href="https://www.linkedin.com/in/julius-ntale-aa08902b6/" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src="/linkedin.png" 
+              alt="LinkedIn" 
+              width={20} 
+              height={20} 
+              className="hover:opacity-80 transition-opacity cursor-pointer"
+              onClick={() => analytics.socialClick('LinkedIn')}
+            />
+          </Link>
+        </div>
+      </div>
+
+      {/* MOBILE LOGO - CENTERED */}
+      <div className="lg:hidden absolute left-1/2 transform -translate-x-1/2">
+        <Link
+          href="/"
+          className="text-sm bg-gradient-to-r from-primary to-accent rounded-lg p-2 font-bold flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative z-10"
+        >
+          <span className="text-white mr-1 text-xs sm:text-sm">Julius</span>
+          <span className="w-10 sm:w-12 h-6 sm:h-8 rounded bg-background/20 backdrop-blur-sm text-black flex items-center justify-center text-xs sm:text-sm font-bold">
+            NTALE
+          </span>
         </Link>
       </div>
 
-      {/* RESPONSIVE MENU */}
-      <div className="md:hidden flex items-center gap-2">
+      {/* MOBILE/TABLET MENU */}
+      <div className="md:hidden flex items-center gap-2 ml-auto">
         <ThemeToggle />
         {/* MENU BUTTON */}
         <button
-          className="w-10 h-8 flex flex-col justify-between z-50 relative"
+          className="w-10 h-8 flex flex-col justify-between z-50 relative ml-2"
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
@@ -178,19 +200,80 @@ const Navbar = () => {
           ></motion.div>
         </button>
 
-        {/* MENU LIST */}
+        {/* MOBILE MENU OVERLAY */}
         {open && (
           <motion.div
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-gradient-to-br from-primary via-accent to-secondary text-white flex flex-col items-center justify-center gap-8 text-4xl z-40 backdrop-blur-md"
+            className="fixed inset-0 w-screen h-screen bg-gradient-to-br from-primary via-accent to-secondary text-white flex flex-col items-center justify-center gap-8 text-3xl sm:text-4xl z-40 backdrop-blur-md"
           >
-            {links.map((link) => (
-              <motion.div variants={listItemVariants} className="hover:scale-110 transition-transform duration-300" key={link.title}>
-                <Link href={link.url} onClick={() => setOpen(false)} className="hover:text-accent-foreground transition-colors">{link.title}</Link>
+            <div className="flex flex-col items-center gap-6">
+              {links.map((link) => (
+                <motion.div 
+                  variants={listItemVariants} 
+                  className="hover:scale-110 transition-transform duration-300" 
+                  key={link.title}
+                >
+                  <Link 
+                    href={link.url} 
+                    onClick={() => setOpen(false)} 
+                    className={`hover:text-accent-foreground transition-colors ${
+                      link.url === '/services' ? 'text-yellow-300 font-bold text-4xl sm:text-5xl' : ''
+                    }`}
+                  >
+                    {link.title}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              {/* Mobile Social Links */}
+              <motion.div 
+                variants={listItemVariants}
+                className="flex gap-4 mt-8"
+              >
+                <Link href="https://github.com/JuliusNtale" target="_blank" rel="noopener noreferrer">
+                  <Image 
+                    src="/github.png" 
+                    alt="GitHub" 
+                    width={32} 
+                    height={32} 
+                    className="hover:opacity-80 transition-opacity cursor-pointer filter invert" 
+                    onClick={() => analytics.socialClick('GitHub')}
+                  />
+                </Link>
+                <Link href="https://www.instagram.com/am.jhey" target="_blank" rel="noopener noreferrer">
+                  <Image 
+                    src="/instagram.png" 
+                    alt="Instagram" 
+                    width={32} 
+                    height={32} 
+                    className="hover:opacity-80 transition-opacity cursor-pointer"
+                    onClick={() => analytics.socialClick('Instagram')}
+                  />
+                </Link>
+                <Link href="https://www.facebook.com/julius.ntale.18/" target="_blank" rel="noopener noreferrer">
+                  <Image 
+                    src="/facebook.png" 
+                    alt="Facebook" 
+                    width={32} 
+                    height={32} 
+                    className="hover:opacity-80 transition-opacity cursor-pointer"
+                    onClick={() => analytics.socialClick('Facebook')}
+                  />
+                </Link>
+                <Link href="https://www.linkedin.com/in/julius-ntale-aa08902b6/" target="_blank" rel="noopener noreferrer">
+                  <Image 
+                    src="/linkedin.png" 
+                    alt="LinkedIn" 
+                    width={32} 
+                    height={32} 
+                    className="hover:opacity-80 transition-opacity cursor-pointer"
+                    onClick={() => analytics.socialClick('LinkedIn')}
+                  />
+                </Link>
               </motion.div>
-            ))}
+            </div>
           </motion.div>
         )}
       </div>

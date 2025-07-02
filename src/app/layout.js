@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import WebVitalsTracker from "@/components/WebVitalsTracker";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
-import { generateSEO, generatePersonStructuredData, generateWebsiteStructuredData } from "@/lib/seo";
+import { generateSEO, generatePersonStructuredData, generateWebsiteStructuredData, generateProfessionalServiceStructuredData, generateGEOOptimizedData, generateExpertiseData, generateFAQData } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
           enableSystem={true}
           disableTransitionOnChange={false}
         >
-          {/* Structured Data */}
+          {/* Enhanced Structured Data for GEO */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -41,6 +41,30 @@ export default function RootLayout({ children }) {
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(generateWebsiteStructuredData()),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateProfessionalServiceStructuredData()),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateGEOOptimizedData()),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateExpertiseData()),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateFAQData()),
             }}
           />
           
