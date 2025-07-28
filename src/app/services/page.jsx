@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   FaCode, 
   FaDatabase, 
@@ -20,7 +20,9 @@ import {
   FaChevronDown,
   FaChevronUp,
   FaLightbulb,
-  FaRocket
+  FaRocket,
+  FaFire,
+  FaTag
 } from "react-icons/fa";
 import { analytics } from "@/lib/analytics";
 import ServiceQuoteForm from "@/components/ServiceQuoteForm";
@@ -31,16 +33,53 @@ const Services = () => {
   const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [selectedPackageForQuote, setSelectedPackageForQuote] = useState("");
   const [expandedService, setExpandedService] = useState(null);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
 
   // Exchange rate (approximate)
   const exchangeRate = 2500; // 1 USD = 2500 TSH (approximate)
 
-  const formatPrice = (usdPrice) => {
+  // Countdown timer for promotion
+  useEffect(() => {
+    // Set promotion end date (7 days from now for demo - adjust as needed)
+    const promotionEndDate = new Date();
+    promotionEndDate.setDate(promotionEndDate.getDate() + 7);
+    
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = promotionEndDate.getTime() - now;
+      
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatPrice = (usdPrice, isDiscounted = false) => {
+    const finalPrice = isDiscounted ? usdPrice * 0.5 : usdPrice;
     if (selectedCurrency === "USD") {
-      return `$${usdPrice.toLocaleString()}`;
+      return {
+        current: `$${finalPrice.toLocaleString()}`,
+        original: isDiscounted ? `$${usdPrice.toLocaleString()}` : null
+      };
     } else {
-      const tshPrice = Math.round(usdPrice * exchangeRate);
-      return `TSH ${tshPrice.toLocaleString()}`;
+      const tshPrice = Math.round(finalPrice * exchangeRate);
+      const originalTshPrice = Math.round(usdPrice * exchangeRate);
+      return {
+        current: `TSH ${tshPrice.toLocaleString()}`,
+        original: isDiscounted ? `TSH ${originalTshPrice.toLocaleString()}` : null
+      };
     }
   };
 
@@ -567,6 +606,90 @@ const Services = () => {
             </div>
           </motion.div>
 
+          {/* 50% OFF Promotion Banner */}
+          <motion.div
+            className="mb-12 relative overflow-hidden"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <div className="bg-gradient-to-r from-red-600 via-orange-600 to-red-600 rounded-2xl p-8 text-white relative">
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600/90 to-orange-600/90 animate-pulse"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/20 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
+              
+              <div className="relative z-10 text-center">
+                {/* Fire Icon and Badge */}
+                <div className="flex justify-center mb-4">
+                  <div className="bg-yellow-400 text-red-600 px-4 py-2 rounded-full font-bold text-sm flex items-center animate-bounce">
+                    <FaFire className="w-4 h-4 mr-2" />
+                    LIMITED TIME OFFER
+                  </div>
+                </div>
+                
+                {/* Main Promotion Text */}
+                <h2 className="text-4xl md:text-6xl font-black mb-4 drop-shadow-lg">
+                  <span className="text-yellow-300">50%</span> OFF
+                </h2>
+                <p className="text-xl md:text-2xl font-bold mb-2 opacity-95">
+                  All Web Development & Mobile App Services
+                </p>
+                <p className="text-lg opacity-80 mb-6 max-w-2xl mx-auto">
+                  Perfect time to launch your business online! Save hundreds on professional development services.
+                </p>
+                
+                {/* Countdown Timer */}
+                <div className="flex justify-center items-center mb-6 space-x-4">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 min-w-[60px]">
+                    <div className="text-2xl font-bold">{timeLeft.days}</div>
+                    <div className="text-xs opacity-80">DAYS</div>
+                  </div>
+                  <div className="text-2xl font-bold opacity-60">:</div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 min-w-[60px]">
+                    <div className="text-2xl font-bold">{timeLeft.hours}</div>
+                    <div className="text-xs opacity-80">HOURS</div>
+                  </div>
+                  <div className="text-2xl font-bold opacity-60">:</div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 min-w-[60px]">
+                    <div className="text-2xl font-bold">{timeLeft.minutes}</div>
+                    <div className="text-xs opacity-80">MINS</div>
+                  </div>
+                  <div className="text-2xl font-bold opacity-60">:</div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 min-w-[60px]">
+                    <div className="text-2xl font-bold">{timeLeft.seconds}</div>
+                    <div className="text-xs opacity-80">SECS</div>
+                  </div>
+                </div>
+                
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowQuoteForm(true)}
+                    className="bg-yellow-400 text-red-600 py-4 px-8 rounded-xl font-bold text-lg hover:bg-yellow-300 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
+                    <FaTag className="mr-2" />
+                    Claim 50% Discount
+                  </button>
+                  <a
+                    href="https://wa.me/255653520829?text=Hi Julius! I want to claim the 50% OFF promotion"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-2 border-white text-white py-4 px-8 rounded-xl font-bold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center justify-center"
+                  >
+                    WhatsApp Now
+                  </a>
+                </div>
+                
+                {/* Promotion Details */}
+                <div className="mt-6 text-sm opacity-75">
+                  <p>* Discount applies to Web Development & Mobile App packages only</p>
+                  <p>* Cannot be combined with other offers</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Service Packages Grid */}
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
@@ -596,9 +719,31 @@ const Services = () => {
                     <pkg.icon className="w-12 h-12 mx-auto mb-4 text-blue-600" />
                     <h3 className="text-2xl font-bold mb-2">{pkg.title}</h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-4">{pkg.subtitle}</p>
-                    <div className="text-4xl font-bold text-blue-600 mb-2">
-                      {formatPrice(pkg.price)}
-                    </div>
+                    
+                    {/* Price with discount logic */}
+                    {(pkg.category === "web" || pkg.category === "mobile") ? (
+                      <div className="mb-2">
+                        {/* Discounted Price */}
+                        <div className="text-4xl font-bold text-green-600 mb-1">
+                          {formatPrice(pkg.price, true).current}
+                          <span className="ml-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-normal">
+                            50% OFF
+                          </span>
+                        </div>
+                        {/* Original Price (crossed out) */}
+                        <div className="text-xl text-gray-500 line-through">
+                          {formatPrice(pkg.price, true).original}
+                        </div>
+                        <div className="text-sm text-green-600 font-semibold">
+                          💰 Save {formatPrice(pkg.price * 0.5).current}!
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="text-4xl font-bold text-blue-600 mb-2">
+                        {formatPrice(pkg.price).current}
+                      </div>
+                    )}
+                    
                     <div className="flex items-center justify-center text-gray-500 dark:text-gray-400">
                       <FaClock className="w-4 h-4 mr-2" />
                       {pkg.duration}
