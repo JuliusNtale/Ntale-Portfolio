@@ -60,13 +60,21 @@ const GitHubProjects = ({ username = "JuliusNtale" }) => {
           }
         }
         
+        // Add small delay to prevent blocking the UI thread
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
         // Fetch user repositories with error handling
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8s timeout
         
         const response = await fetch(
           `https://api.github.com/users/${username}/repos?sort=updated&per_page=12`,
-          { signal: controller.signal }
+          { 
+            signal: controller.signal,
+            headers: {
+              'Accept': 'application/vnd.github.v3+json',
+            }
+          }
         );
         
         clearTimeout(timeoutId);

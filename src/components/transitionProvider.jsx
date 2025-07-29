@@ -37,7 +37,14 @@ const TransitionProvider = ({ children }) => {
         <div className="sticky top-0 z-30 w-full">
           <Navbar />
         </div>
-        <div className="min-h-[calc(100vh-4rem)] w-full">{children}</div>
+        <motion.div 
+          className="min-h-[calc(100vh-4rem)] w-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.6 }} // Delay to ensure transition completes
+        >
+          {children}
+        </motion.div>
       </div>
     </AnimatePresence>
   );
