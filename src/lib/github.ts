@@ -4,13 +4,18 @@ const GITHUB_USERNAME = 'JuliusNtale'; // Replace with your GitHub username
 
 export async function fetchGitHubRepos(): Promise<GitHubRepo[]> {
   try {
+    const headers: Record<string, string> = {
+      'Accept': 'application/vnd.github.v3+json',
+    };
+
+    // Add authorization if token is available
+    if (process.env.GITHUB_TOKEN) {
+      headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+    }
+
     const response = await fetch(
       `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`,
-      {
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-        },
-      }
+      { headers }
     );
 
     if (!response.ok) {
@@ -31,13 +36,17 @@ export async function fetchGitHubRepos(): Promise<GitHubRepo[]> {
 
 export async function fetchRepoLanguages(repoName: string): Promise<Record<string, number>> {
   try {
+    const headers: Record<string, string> = {
+      'Accept': 'application/vnd.github.v3+json',
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+    }
+
     const response = await fetch(
       `https://api.github.com/repos/${GITHUB_USERNAME}/${repoName}/languages`,
-      {
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-        },
-      }
+      { headers }
     );
 
     if (!response.ok) {
@@ -53,13 +62,17 @@ export async function fetchRepoLanguages(repoName: string): Promise<Record<strin
 
 export async function fetchGitHubProfile() {
   try {
+    const headers: Record<string, string> = {
+      'Accept': 'application/vnd.github.v3+json',
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+    }
+
     const response = await fetch(
       `https://api.github.com/users/${GITHUB_USERNAME}`,
-      {
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-        },
-      }
+      { headers }
     );
 
     if (!response.ok) {
