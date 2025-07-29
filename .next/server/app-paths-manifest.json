@@ -1,13 +1,5 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/blog/page": "app/blog/page.js",
   "/page": "app/page.js",
-  "/emailjs-test/page": "app/emailjs-test/page.js",
-  "/portfolio/page": "app/portfolio/page.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
-  "/contact/page": "app/contact/page.js",
-  "/services/page": "app/services/page.js",
-  "/about/page": "app/about/page.js"
+  "/services/page": "app/services/page.js"
 }

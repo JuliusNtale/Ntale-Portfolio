@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  optimizeFonts: false, // Temporarily disable font optimization
   images: {
     remotePatterns: [
       {
