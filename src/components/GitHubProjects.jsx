@@ -63,50 +63,21 @@ const GitHubProjects = ({ username = "JuliusNtale" }) => {
         // Add small delay to prevent blocking the UI thread
         await new Promise(resolve => setTimeout(resolve, 100));
         
-        // Fetch user repositories with error handling
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8s timeout
-        
-        const response = await fetch(
-          `https://api.github.com/users/${username}/repos?sort=updated&per_page=12`,
-          { 
-            signal: controller.signal,
-            headers: {
-              'Accept': 'application/vnd.github.v3+json',
-            }
-          }
-        );
-        
-        clearTimeout(timeoutId);
+        // Use our API route that handles GitHub token server-side
+        const response = await fetch('/api/github/repos');
         
         if (!response.ok) {
-          throw new Error(`GitHub API error: ${response.status}`);
+          throw new Error(`API error: ${response.status}`);
         }
         
         const repos = await response.json();
         
-        // Filter and format the repositories
-        const formattedProjects = repos
-          .filter(repo => !repo.fork && !repo.archived) // Exclude forks and archived repos
-          .map(repo => ({
-            id: repo.id,
-            name: repo.name,
-            description: repo.description || "No description available",
-            language: repo.language,
-            stars: repo.stargazers_count,
-            forks: repo.forks_count,
-            watchers: repo.watchers_count,
-            updated: new Date(repo.updated_at).toLocaleDateString(),
-            githubUrl: repo.html_url,
-            homepage: repo.homepage,
-            topics: repo.topics || [],
-            size: repo.size,
-            createdAt: new Date(repo.created_at),
-            updatedAt: new Date(repo.updated_at),
-            defaultBranch: repo.default_branch,
-            isPrivate: repo.private
-          }))
-          .sort((a, b) => b.updatedAt - a.updatedAt); // Sort by most recently updated
+        // The API route already filters and transforms the data
+        const formattedProjects = repos.map(repo => ({
+          ...repo,
+          updated: new Date(repo.updated).toLocaleDateString(),
+          liveUrl: repo.homepage || null,
+        }));
         
         // Cache the results
         localStorage.setItem(CACHE_KEY, JSON.stringify({
