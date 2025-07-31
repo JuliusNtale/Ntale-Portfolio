@@ -22,7 +22,7 @@ const LoadingSpinner = () => (
 
 const PortfolioClient = () => {
   const [filter, setFilter] = useState('all');
-  const [activeTab, setActiveTab] = useState('featured'); // Start with featured for faster load
+  const [activeTab, setActiveTab] = useState('github'); // Start with open source projects
   const [isClient, setIsClient] = useState(false);
 
   // Ensure client-side hydration
@@ -89,25 +89,6 @@ const PortfolioClient = () => {
         >
           <div className="bg-white dark:bg-gray-800 rounded-xl p-1.5 flex shadow-lg border border-gray-200 dark:border-gray-700">
             <button
-              onClick={() => setActiveTab('featured')}
-              className={`px-4 sm:px-6 py-3 sm:py-3 rounded-lg transition-all duration-300 font-medium relative min-h-[48px] touch-manipulation ${
-                activeTab === 'featured'
-                  ? 'bg-blue-600 text-white shadow-md transform scale-105'
-                  : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700'
-              }`}
-            >
-              <FaStar className="inline w-4 h-4 mr-2" />
-              <span className="hidden sm:inline">Featured Work</span>
-              <span className="sm:hidden">Featured</span>
-              {activeTab === 'featured' && (
-                <motion.div
-                  className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-400 rounded-full"
-                  layoutId="activeTab"
-                  transition={{ duration: 0.3 }}
-                />
-              )}
-            </button>
-            <button
               onClick={() => setActiveTab('github')}
               className={`px-4 sm:px-6 py-3 sm:py-3 rounded-lg transition-all duration-300 font-medium relative min-h-[48px] touch-manipulation ${
                 activeTab === 'github'
@@ -119,6 +100,25 @@ const PortfolioClient = () => {
               <span className="hidden sm:inline">Open Source Projects</span>
               <span className="sm:hidden">Open Source</span>
               {activeTab === 'github' && (
+                <motion.div
+                  className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-400 rounded-full"
+                  layoutId="activeTab"
+                  transition={{ duration: 0.3 }}
+                />
+              )}
+            </button>
+            <button
+              onClick={() => setActiveTab('featured')}
+              className={`px-4 sm:px-6 py-3 sm:py-3 rounded-lg transition-all duration-300 font-medium relative min-h-[48px] touch-manipulation ${
+                activeTab === 'featured'
+                  ? 'bg-blue-600 text-white shadow-md transform scale-105'
+                  : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700'
+              }`}
+            >
+              <FaStar className="inline w-4 h-4 mr-2" />
+              <span className="hidden sm:inline">Featured Work</span>
+              <span className="sm:hidden">Featured</span>
+              {activeTab === 'featured' && (
                 <motion.div
                   className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-400 rounded-full"
                   layoutId="activeTab"
