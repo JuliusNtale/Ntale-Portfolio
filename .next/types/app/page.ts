@@ -1,4 +1,4 @@
-// File: E:\Git\Ntale-Portfolio\src\app\page.jsx
+// File: C:\SIDE\GIT\Ntale-Portfolio\src\app\page.jsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

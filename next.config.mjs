@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  optimizeFonts: false, // Temporarily disable font optimization
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   images: {
+    unoptimized: true, // Required for static export
     remotePatterns: [
       {
         protocol: "https",

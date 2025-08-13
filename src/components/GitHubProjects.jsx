@@ -63,20 +63,41 @@ const GitHubProjects = ({ username = "JuliusNtale" }) => {
         // Add small delay to prevent blocking the UI thread
         await new Promise(resolve => setTimeout(resolve, 100));
         
-        // Use our API route that handles GitHub token server-side
-        const response = await fetch('/api/github/repos');
+        // For static export, fetch directly from GitHub API
+        const githubResponse = await fetch(
+          `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,
+          {
+            headers: {
+              'Accept': 'application/vnd.github.v3+json',
+              'User-Agent': 'Julius-Ntale-Portfolio',
+            }
+          }
+        );
         
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status}`);
+        if (!githubResponse.ok) {
+          throw new Error(`GitHub API error: ${githubResponse.status}`);
         }
         
-        const repos = await response.json();
+        const repos = await githubResponse.json();
         
-        // The API route already filters and transforms the data
-        const formattedProjects = repos.map(repo => ({
-          ...repo,
-          updated: new Date(repo.updated).toLocaleDateString(),
+        // Filter and transform the data (same logic as the API route)
+        const filteredRepos = repos
+          .filter(repo => !repo.fork && !repo.archived)
+          .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+          .slice(0, 12);
+
+        const formattedProjects = filteredRepos.map(repo => ({
+          id: repo.id,
+          name: repo.name,
+          description: repo.description || "No description available",
+          language: repo.language,
+          stars: repo.stargazers_count,
+          forks: repo.forks_count,
+          watchers: repo.watchers_count,
+          updated: new Date(repo.updated_at).toLocaleDateString(),
+          githubUrl: repo.html_url,
           liveUrl: repo.homepage || null,
+          topics: repo.topics || [],
         }));
         
         // Cache the results

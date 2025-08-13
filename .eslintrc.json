@@ -3,6 +3,14 @@
     "eslint:recommended",
     "next/core-web-vitals"
   ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "Promise": "readonly"
+  },
   "rules": {
     "react/prop-types": "off",
     "react/no-unescaped-entities": "warn",
