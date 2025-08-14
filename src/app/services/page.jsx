@@ -46,8 +46,8 @@ const Services = () => {
   // Countdown timer for promotion
   useEffect(() => {
     // Set promotion end date (7 days from now for demo - adjust as needed)
-    const promotionEndDate = new Date();
-    promotionEndDate.setDate(promotionEndDate.getDate() + 7);
+    const promotionEndDate = new Date("2025-08-01");
+    promotionEndDate.setDate(promotionEndDate.getDate() + 30);
     
     const timer = setInterval(() => {
       const now = new Date().getTime();
