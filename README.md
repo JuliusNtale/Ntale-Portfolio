@@ -10,7 +10,6 @@ A cutting-edge portfolio website showcasing skills, projects, and achievements i
 - **Dark/Light Mode**: Seamless theme switching with next-themes
 - **Responsive Design**: Optimized for all screen sizes and devices
 - **Advanced Animations**: Smooth transitions and micro-interactions with Framer Motion
-- **Interactive 3D Brain**: Animated SVG brain component with scroll-based animations
 - **Floating Action Button**: Smart services CTA that appears after 2 seconds on non-services pages
 
 ### 📧 **Professional Email System**
@@ -98,16 +97,13 @@ Ntale-Portfolio/
 │   │   ├── portfolio/     # Portfolio gallery with projects
 │   │   ├── services/      # Professional services and pricing
 │   │   ├── contact/       # Contact page with EmailJS forms
-│   │   ├── blog/          # Blog with dynamic content
-│   │   └── emailjs-test/  # Email debugging and testing
+│   │   └── blog/          # Blog with dynamic content
 │   ├── components/        # React components
 │   │   ├── ui/           # Reusable UI components
 │   │   ├── sections/     # Page-specific sections
 │   │   ├── analytics/    # Analytics and tracking
-│   │   ├── brain.jsx     # Interactive 3D brain animation
 │   │   ├── FloatingServicesButton.jsx # Floating CTA
 │   │   ├── ServiceQuoteForm.jsx # Professional quote forms
-│   │   ├── EmailJSDebugger.jsx # Email testing component
 │   │   └── NewsletterSignup.jsx # Email subscription
 │   ├── lib/              # Utility functions and services
 │   │   ├── analytics.ts  # Custom analytics tracking
@@ -119,8 +115,6 @@ Ntale-Portfolio/
 │   └── types/            # TypeScript definitions
 ├── content/              # Markdown content
 │   └── projects/         # Project documentation
-├── scripts/              # Build and optimization scripts
-│   └── optimize-images.js # Image optimization tools
 ├── tailwind.config.js    # Tailwind configuration
 ├── next.config.mjs       # Next.js configuration
 ├── tsconfig.json         # TypeScript configuration
