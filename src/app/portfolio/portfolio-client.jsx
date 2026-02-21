@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useState, Suspense, lazy, useEffect } from "react";
 import { Github, ExternalLink } from "lucide-react";
 import { FaGithub, FaCode, FaRocket, FaStar, FaSpinner } from "react-icons/fa";
 import { featuredProjects } from "@/lib/data";
+import ProjectImageWithFallback from "@/components/ProjectImageWithFallback";
 
 // Lazy load the GitHubProjects component
 const GitHubProjects = lazy(() => import("@/components/GitHubProjects"));
@@ -130,8 +130,9 @@ const PortfolioClient = () => {
                 >
                   {/* Project Image */}
                   <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
+                    <ProjectImageWithFallback
                       src={project.image}
+                      fallbackSrc={project.fallbackImage}
                       alt={`${project.title} homepage preview`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

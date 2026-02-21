@@ -8,6 +8,7 @@ import { ArrowDown, Code2, Github, ExternalLink } from "lucide-react";
 import { personalInfo, skills, featuredProjects } from "@/lib/data";
 import { analytics } from "@/lib/analytics";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import ProjectImageWithFallback from "@/components/ProjectImageWithFallback";
 
 const Homepage = () => {
   const ref = useRef(null);
@@ -223,10 +224,12 @@ const Homepage = () => {
                 className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 group"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image
+                  <ProjectImageWithFallback
                     src={project.image}
+                    fallbackSrc={project.fallbackImage}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

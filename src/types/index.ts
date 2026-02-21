@@ -5,6 +5,7 @@ export interface Project {
   longDescription: string;
   technologies: string[];
   image: string;
+  fallbackImage?: string;
   images: string[];
   githubUrl?: string;
   liveUrl?: string;
