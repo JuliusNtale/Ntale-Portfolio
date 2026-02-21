@@ -95,125 +95,95 @@ export const experiences: Experience[] = [
 export const featuredProjects: Project[] = [
   {
     id: '1',
-    title: 'React E-commerce Platform',
-    description: 'A full-featured e-commerce website with user authentication, shopping cart, and payment integration.',
-    longDescription: 'A comprehensive e-commerce solution built with React and Node.js, featuring user authentication, product catalog, shopping cart functionality, and secure payment processing. The platform includes an admin dashboard for inventory management and order tracking.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Stripe API', 'Tailwind CSS'],
-    image: '/optimized/project1.webp',
-    images: ['/optimized/project1.webp'],
-    githubUrl: 'https://github.com/JuliusNtale/react-ecommerce',
-    liveUrl: 'https://react-ecommerce-demo.vercel.app',
+    title: 'Neuraltale Official Website',
+    description: 'Corporate website for Neuraltale Technologies focused on brand visibility, company profile, and conversion-driven service communication.',
+    longDescription: 'A production-ready corporate website built to present Neuraltale Technologies with a clean brand-first experience, high-performance landing pages, and clear service pathways for enterprise and startup clients.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'SEO', 'Vercel'],
+    image: 'https://image.thum.io/get/width/1400/noanimate/https://neuraltale.com',
+    images: ['https://image.thum.io/get/width/1400/noanimate/https://neuraltale.com'],
+    githubUrl: 'https://github.com/JuliusNtale',
+    liveUrl: 'https://neuraltale.com',
     featured: true,
     category: 'web',
-    startDate: '2023-03-01',
-    endDate: '2023-06-30',
+    startDate: '2025-01-01',
+    endDate: '2025-03-31',
     status: 'completed',
     highlights: [
-      'Implemented secure payment processing with Stripe',
-      'Built responsive design with mobile-first approach',
-      'Integrated real-time inventory management'
+      'Delivered a polished corporate homepage experience',
+      'Implemented responsive UX for mobile and desktop users',
+      'Optimized pages for performance and discoverability'
     ],
     challenges: [
-      'Implementing secure user authentication',
-      'Optimizing performance for large product catalogs',
-      'Ensuring PCI compliance for payment processing'
+      'Balancing visual brand identity with loading performance',
+      'Structuring content for both users and search engines',
+      'Maintaining consistency across different screen sizes'
     ],
     lessons: [
-      'Learned advanced React patterns and state management',
-      'Gained experience with payment gateway integration',
-      'Improved understanding of e-commerce user flows'
+      'Strengthened enterprise-focused UI communication patterns',
+      'Improved production deployment and optimization workflow',
+      'Validated scalable component architecture in real-world use'
     ]
   },
   {
     id: '2',
-    title: 'Next.js Portfolio Website',
-    description: 'A modern, animated portfolio website showcasing projects and skills with smooth animations.',
-    longDescription: 'This portfolio website demonstrates modern web development techniques using Next.js 14, featuring smooth animations with Framer Motion, responsive design, and optimized performance. The site includes dynamic project showcases, skill visualizations, and integrated contact forms.',
-    technologies: ['Next.js', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'EmailJS'],
-    image: '/optimized/project2.webp',
-    images: ['/optimized/project2.webp'],
-    githubUrl: 'https://github.com/JuliusNtale/ntale-portfolio',
-    liveUrl: 'https://ntale-portfolio.vercel.app',
+    title: 'Neuralashop Microservices E-Commerce',
+    description: 'Microservices-based e-commerce platform for tech gadgets with modular architecture and scalable service boundaries.',
+    longDescription: 'A live e-commerce platform engineered with a microservices mindset to support product discovery, catalog browsing, and scalable commerce operations for a growing technology retail audience.',
+    technologies: ['Microservices', 'React', 'Node.js', 'API Gateway', 'Docker'],
+    image: 'https://image.thum.io/get/width/1400/noanimate/https://neurlashop.neuraltale.com',
+    images: ['https://image.thum.io/get/width/1400/noanimate/https://neurlashop.neuraltale.com'],
+    githubUrl: 'https://github.com/JuliusNtale',
+    liveUrl: 'https://neurlashop.neuraltale.com',
     featured: true,
     category: 'web',
-    startDate: '2023-08-01',
-    endDate: '2023-10-15',
+    startDate: '2025-04-01',
+    endDate: '2025-07-31',
     status: 'completed',
     highlights: [
-      'Achieved 98+ Lighthouse performance score',
-      'Implemented advanced animations with Framer Motion',
-      'Built with accessibility and SEO best practices'
+      'Built a production commerce interface for tech products',
+      'Structured architecture for service-level scalability',
+      'Delivered reliable UX across catalog and product flows'
     ],
     challenges: [
-      'Optimizing animation performance',
-      'Creating engaging user interactions',
-      'Balancing visual appeal with loading speed'
+      'Coordinating UI behavior across distributed services',
+      'Handling consistency in multi-service data contracts',
+      'Maintaining responsive performance with richer catalog content'
     ],
     lessons: [
-      'Mastered advanced Framer Motion techniques',
-      'Learned performance optimization strategies',
-      'Improved design and user experience skills'
+      'Deepened understanding of microservices-driven frontends',
+      'Improved production troubleshooting for distributed systems',
+      'Strengthened API-first integration and release workflows'
     ]
   },
   {
     id: '3',
-    title: 'Student Management System',
-    description: 'A comprehensive school management system for tracking student attendance and academic records.',
-    longDescription: 'A full-stack web application designed for educational institutions to manage student information, track attendance, monitor academic progress, and facilitate parent-school communication. The system includes role-based access control for administrators, teachers, students, and parents.',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Express.js', 'Chart.js', 'Material-UI'],
-    image: '/optimized/project3.webp',
-    images: ['/optimized/project3.webp'],
-    githubUrl: 'https://github.com/JuliusNtale/student-management-system',
+    title: 'The Link Africa Website',
+    description: 'Opportunity and scholarship platform connecting young Africans with curated academic, career, and funding opportunities.',
+    longDescription: 'A modern opportunity platform designed to make scholarships and development opportunities easy to discover, filter, and access for users across Africa with a clean and trustworthy experience.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Content Management', 'SEO'],
+    image: 'https://image.thum.io/get/width/1400/noanimate/https://thelin.africa',
+    images: ['https://image.thum.io/get/width/1400/noanimate/https://thelin.africa'],
+    githubUrl: 'https://github.com/JuliusNtale',
+    liveUrl: 'https://thelin.africa',
     featured: true,
     category: 'web',
-    startDate: '2022-09-01',
-    endDate: '2023-01-30',
+    startDate: '2025-08-01',
+    endDate: '2025-10-31',
     status: 'completed',
     highlights: [
-      'Implemented role-based access control',
-      'Built comprehensive reporting dashboard',
-      'Integrated automated notification system'
+      'Created a clear opportunities discovery experience',
+      'Optimized structure for discoverability and engagement',
+      'Delivered responsive layouts across all device classes'
     ],
     challenges: [
-      'Designing complex database relationships',
-      'Implementing secure multi-role authentication',
-      'Creating intuitive interfaces for different user types'
+      'Designing high-density listings without visual clutter',
+      'Balancing editorial content with product-style usability',
+      'Improving readability and hierarchy for mobile users'
     ],
     lessons: [
-      'Gained experience with complex database design',
-      'Learned about educational technology requirements',
-      'Improved project management and planning skills'
-    ]
-  },
-  {
-    id: '4',
-    title: 'Hillsview Media Website',
-    description: 'A professional media production company website showcasing photography and videography services.',
-    longDescription: 'A sleek, professional website for Hillsview Media, a photography and videography company. The site features an elegant portfolio gallery, service descriptions, client testimonials, and contact forms. Built with performance and visual appeal in mind to attract potential clients.',
-    technologies: ['HTML5', 'CSS3', 'JavaScript', 'GSAP', 'Lightbox.js', 'PHP'],
-    image: '/optimized/project4.webp',
-    images: ['/optimized/project4.webp'],
-    githubUrl: 'https://github.com/JuliusNtale/hillsview-website',
-    liveUrl: 'https://hillsviewmedia.com',
-    featured: true,
-    category: 'web',
-    startDate: '2021-05-01',
-    endDate: '2021-08-15',
-    status: 'completed',
-    highlights: [
-      'Created stunning visual portfolio galleries',
-      'Implemented smooth scrolling animations',
-      'Optimized images for fast loading'
-    ],
-    challenges: [
-      'Optimizing large media files for web',
-      'Creating engaging visual storytelling',
-      'Balancing aesthetics with functionality'
-    ],
-    lessons: [
-      'Learned advanced CSS animation techniques',
-      'Gained experience with media optimization',
-      'Improved understanding of client requirements'
+      'Improved information architecture for opportunity-driven platforms',
+      'Enhanced practical SEO implementation for content-heavy pages',
+      'Refined reusable UI patterns for long-term maintainability'
     ]
   }
 ];

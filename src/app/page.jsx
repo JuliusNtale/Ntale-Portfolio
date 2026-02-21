@@ -213,8 +213,8 @@ const Homepage = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {featuredProjects.slice(0, 2).map((project, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProjects.slice(0, 3).map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -233,15 +233,27 @@ const Homepage = () => {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  <div className="flex justify-between items-center">
-                    <div className="flex gap-2">
-                      <Link href={project.githubUrl} target="_blank">
-                        <Github 
-                          className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" 
-                          onClick={() => analytics.socialClick('GitHub')}
-                        />
-                      </Link>
+                  <p className="text-muted-foreground mb-4 min-h-[72px]">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span
+                        key={`${project.id}-${tech}`}
+                        className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex justify-between items-center gap-3">
+                    <div className="flex gap-3">
+                      {project.githubUrl && (
+                        <Link href={project.githubUrl} target="_blank">
+                          <Github 
+                            className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" 
+                            onClick={() => analytics.socialClick('GitHub')}
+                          />
+                        </Link>
+                      )}
                       {project.liveUrl && (
                         <Link href={project.liveUrl} target="_blank">
                           <ExternalLink 
@@ -251,7 +263,7 @@ const Homepage = () => {
                         </Link>
                       )}
                     </div>
-                    <span className="text-sm text-muted-foreground">{project.category}</span>
+                    <span className="text-sm text-muted-foreground">Completed</span>
                   </div>
                 </div>
               </motion.div>
