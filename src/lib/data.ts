@@ -135,7 +135,7 @@ export const featuredProjects: Project[] = [
     fallbackImage: '/optimized/project2.webp',
     images: ['/optimized/project2.webp'],
     githubUrl: 'https://github.com/JuliusNtale',
-    liveUrl: 'https://neurlashop.neuraltale.com',
+    liveUrl: 'https://neurashop.neuraltale.com',
     featured: true,
     category: 'web',
     startDate: '2025-04-01',
