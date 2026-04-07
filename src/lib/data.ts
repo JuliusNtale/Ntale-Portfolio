@@ -6,8 +6,9 @@ export const personalInfo: PersonalInfo = {
   bio: "Passionate full-stack developer with expertise in modern web technologies and a unique background in media production. I create engaging digital experiences that bridge technology and creativity, specializing in React, Next.js, and full-stack development.",
   location: "Dar es Salaam, Tanzania",
   email: "juliusntale30@gmail.com",
+  phone: "+255 653 520 829",
   website: "https://ntale-portfolio.vercel.app",
-  resume: "/resume.pdf",
+  resume: "/Julius_Peter_Ntale_CV_Programmer.pdf",
   avatar: "/optimized/ntale.webp",
   socialLinks: [
     {

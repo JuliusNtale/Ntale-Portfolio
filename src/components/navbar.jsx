@@ -11,6 +11,7 @@ import { analytics } from "@/lib/analytics";
 const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
+  { url: "/cv", title: "CV" },
   { url: "/portfolio", title: "Portfolio" },
   { url: "/services", title: "Services" },
   { url: "/blog", title: "Blog" },

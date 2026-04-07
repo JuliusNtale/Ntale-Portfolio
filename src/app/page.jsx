@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
-import { ArrowDown, Code2, Github, ExternalLink } from "lucide-react";
+import { ArrowDown, Code2, Github, ExternalLink, Download } from "lucide-react";
 import { personalInfo, skills, featuredProjects } from "@/lib/data";
 import { analytics } from "@/lib/analytics";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -103,6 +103,15 @@ const Homepage = () => {
                     Get In Touch
                   </button>
                 </Link>
+                <a href={personalInfo.resume} download>
+                  <button 
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm md:text-base flex items-center justify-center gap-2"
+                    onClick={() => analytics.buttonClick('Download CV', 'Hero Section')}
+                  >
+                    <Download className="w-4 h-4" />
+                    Download CV
+                  </button>
+                </a>
               </motion.div>
 
               {/* Quick Stats */}
