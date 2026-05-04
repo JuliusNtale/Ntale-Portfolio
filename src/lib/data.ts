@@ -163,7 +163,7 @@ export const featuredProjects: Project[] = [
     title: 'The Link Africa Website',
     description: 'Opportunity and scholarship platform connecting young Africans with curated academic, career, and funding opportunities.',
     longDescription: 'A modern opportunity platform designed to make scholarships and development opportunities easy to discover, filter, and access for users across Africa with a clean and trustworthy experience.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Content Management', 'SEO'],
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'SEO'],
     image: '/thelink.png',
     fallbackImage: '/optimized/project3.webp',
     images: ['/thelink.png'],
@@ -188,6 +188,37 @@ export const featuredProjects: Project[] = [
       'Improved information architecture for opportunity-driven platforms',
       'Enhanced practical SEO implementation for content-heavy pages',
       'Refined reusable UI patterns for long-term maintainability'
+    ]
+  }
+  ,
+  {
+    id: '4',
+    title: 'HillsView Productions',
+    description: 'Production website for HillsView Productions showcasing cinematic photography and videography services.',
+    longDescription: 'A production website built for HillsView Productions to highlight their photography, videography, and media services with an emphasis on portfolio presentation and contact conversions.',
+    technologies: ['WordPress', 'HTML', 'CSS', 'SEO'],
+    image: '/hillsview.png',
+    fallbackImage: '/hillsview.png',
+    images: ['/hillsview.png'],
+    githubUrl: '',
+    liveUrl: 'https://hillsviewproduction.com',
+    featured: true,
+    category: 'web',
+    startDate: '2023-06-01',
+    endDate: '2023-08-15',
+    status: 'completed',
+    highlights: [
+      'Showcased portfolio and services',
+      'Improved lead capture and contact flow',
+      'Optimized media presentation for performance'
+    ],
+    challenges: [
+      'Balancing high-quality media with page performance',
+      'Ensuring cross-device visual fidelity for portfolios'
+    ],
+    lessons: [
+      'Improved image optimization workflows',
+      'Refined portfolio layout patterns for conversion'
     ]
   }
 ];
