@@ -67,8 +67,8 @@ export function generateSEO(props: SEOProps = {}): Metadata {
       "secure web development",
       "accessibility compliance"
     ],
-    image = "/ntale.png",
-    url = "https://ntale-portfolio.vercel.app",
+      image = "https://juliusntale.neuraltale.com/ntale.png",
+      url = "https://juliusntale.neuraltale.com",
     type = "website",
     publishedTime,
     modifiedTime,
@@ -98,7 +98,7 @@ export function generateSEO(props: SEOProps = {}): Metadata {
     openGraph: {
       type,
       locale: 'en_US',
-      url,
+         url: "https://juliusntale.neuraltale.com",
       title: siteTitle,
       description,
       siteName: "Julius Ntale Portfolio",
@@ -142,8 +142,8 @@ export function generatePersonStructuredData() {
     alternateName: ['Julius Ntale', 'Peter Ntale'],
     jobTitle: ['Full-Stack Developer', 'Software Engineer', 'Media Producer', 'Digital Solutions Architect'],
     description: 'Expert full-stack developer from Tanzania with 5+ years of experience creating scalable web applications, e-commerce platforms, and digital solutions. Specializes in React, Next.js, TypeScript, and modern JavaScript technologies. Available for freelance projects globally with expertise in both frontend and backend development, database design, and media production.',
-    url: 'https://ntale-portfolio.vercel.app',
-    image: 'https://ntale-portfolio.vercel.app/ntale.png',
+    url: 'https://juliusntale.neuraltale.com',
+    image: 'https://juliusntale.neuraltale.com/ntale.png',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Dar es Salaam',
@@ -286,12 +286,12 @@ export function generateWebsiteStructuredData() {
     name: 'Julius Peter Ntale - Professional Portfolio & Development Services',
     alternateName: ['Julius Ntale Portfolio', 'Ntale Web Development', 'Julius Peter Ntale Developer'],
     description: 'Professional portfolio website of Julius Peter Ntale, showcasing expert full-stack web development services, React applications, Next.js projects, and digital solutions. Based in Dar es Salaam, Tanzania, serving clients globally with modern web technologies and creative media production.',
-    url: 'https://ntale-portfolio.vercel.app',
+    url: 'https://juliusntale.neuraltale.com',
     
     author: {
       '@type': 'Person',
       name: 'Julius Peter Ntale',
-      url: 'https://ntale-portfolio.vercel.app',
+      url: 'https://juliusntale.neuraltale.com',
       sameAs: [
         'https://github.com/JuliusNtale',
         'https://www.linkedin.com/in/julius-ntale-aa08902b6/'
@@ -320,7 +320,7 @@ export function generateWebsiteStructuredData() {
     
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://ntale-portfolio.vercel.app/search?q={search_term_string}',
+      target: 'https://juliusntale.neuraltale.com/search?q={search_term_string}',
       'query-input': 'required name=search_term_string'
     },
     
@@ -352,10 +352,10 @@ export function generateWebsiteStructuredData() {
     ],
     
     significantLink: [
-      'https://ntale-portfolio.vercel.app/services',
-      'https://ntale-portfolio.vercel.app/portfolio',
-      'https://ntale-portfolio.vercel.app/about',
-      'https://ntale-portfolio.vercel.app/contact'
+      'https://juliusntale.neuraltale.com/services',
+      'https://juliusntale.neuraltale.com/portfolio',
+      'https://juliusntale.neuraltale.com/about',
+      'https://juliusntale.neuraltale.com/contact'
     ]
   };
 }
@@ -367,7 +367,7 @@ export function generateProfessionalServiceStructuredData() {
     name: 'Julius Peter Ntale - Web Development & Digital Solutions',
     alternateName: ['Ntale Web Development Services', 'Julius Ntale Freelance Developer'],
     description: 'Professional web development, custom software solutions, and digital media services by Julius Peter Ntale. Specializing in React, Next.js, full-stack development, e-commerce platforms, and creative media production for businesses in Tanzania, East Africa, and globally.',
-    url: 'https://ntale-portfolio.vercel.app',
+    url: 'https://juliusntale.neuraltale.com',
     telephone: '+255653520829',
     email: 'juliusntale30@gmail.com',
     
@@ -445,7 +445,7 @@ export function generateProfessionalServiceStructuredData() {
       '@type': 'Person',
       name: 'Julius Peter Ntale',
       jobTitle: 'Full-Stack Developer & Digital Solutions Architect',
-      url: 'https://ntale-portfolio.vercel.app'
+      url: 'https://juliusntale.neuraltale.com'
     },
     
     // Service details for better AI context
@@ -534,18 +534,18 @@ export function generateArticleStructuredData({
     headline: title,
     description,
     url,
-    image: image || 'https://juliusntale.com/images/og-image.jpg',
+    image: image || 'https://juliusntale.neuraltale.com/images/og-image.jpg',
     datePublished: publishedTime,
     dateModified: modifiedTime || publishedTime,
     author: {
       '@type': 'Person',
       name: author,
-      url: 'https://juliusntale.com'
+      url: 'https://juliusntale.neuraltale.com'
     },
     publisher: {
       '@type': 'Person',
       name: author,
-      url: 'https://juliusntale.com'
+      url: 'https://juliusntale.neuraltale.com'
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -561,10 +561,10 @@ export function generateGEOOptimizedData() {
     '@graph': [
       {
         '@type': 'Person',
-        '@id': 'https://ntale-portfolio.vercel.app/#person',
+        '@id': 'https://juliusntale.neuraltale.com/#person',
         name: 'Julius Peter Ntale',
         description: 'Expert full-stack developer from Tanzania specializing in React, Next.js, and modern web technologies. Available for freelance projects worldwide.',
-        url: 'https://ntale-portfolio.vercel.app',
+        url: 'https://juliusntale.neuraltale.com',
         sameAs: [
           'https://github.com/JuliusNtale',
           'https://www.linkedin.com/in/julius-ntale-aa08902b6/'
@@ -572,10 +572,10 @@ export function generateGEOOptimizedData() {
       },
       {
         '@type': 'Organization',
-        '@id': 'https://ntale-portfolio.vercel.app/#organization',
+        '@id': 'https://juliusntale.neuraltale.com/#organization',
         name: 'Julius Ntale Web Development Services',
         founder: {
-          '@id': 'https://ntale-portfolio.vercel.app/#person'
+          '@id': 'https://juliusntale.neuraltale.com/#person'
         },
         location: {
           '@type': 'Place',
@@ -584,11 +584,11 @@ export function generateGEOOptimizedData() {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://ntale-portfolio.vercel.app/#website',
-        url: 'https://ntale-portfolio.vercel.app',
+        '@id': 'https://juliusntale.neuraltale.com/#website',
+        url: 'https://juliusntale.neuraltale.com',
         name: 'Julius Peter Ntale Portfolio',
         publisher: {
-          '@id': 'https://ntale-portfolio.vercel.app/#person'
+          '@id': 'https://juliusntale.neuraltale.com/#person'
         }
       }
     ]
@@ -600,7 +600,7 @@ export function generateExpertiseData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': 'https://ntale-portfolio.vercel.app/#person',
+    '@id': 'https://juliusntale.neuraltale.com/#person',
     name: 'Julius Peter Ntale',
     hasSkill: [
       {
@@ -698,7 +698,7 @@ export function generateFAQData() {
         name: 'How can I contact Julius Ntale for a project?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'You can contact Julius Peter Ntale through his website contact form at https://ntale-portfolio.vercel.app/contact, email him at juliusntale30@gmail.com, or call/WhatsApp at +255653520829. He also offers a services page where you can request a custom quote for your project.'
+          text: 'You can contact Julius Peter Ntale through his website contact form at https://juliusntale.neuraltale.com/contact, email him at juliusntale30@gmail.com, or call/WhatsApp at +255653520829. He also offers a services page where you can request a custom quote for your project.'
         }
       },
       {

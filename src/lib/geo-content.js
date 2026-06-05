@@ -90,7 +90,7 @@ export const geoContent = {
   contact: {
     email: "juliusntale30@gmail.com",
     phone: "+255653520829",
-    website: "https://ntale-portfolio.vercel.app",
+    website: "https://juliusntale.neuraltale.com",
     socialProfiles: {
       github: "https://github.com/JuliusNtale",
       linkedin: "https://www.linkedin.com/in/julius-ntale-aa08902b6/",
@@ -134,7 +134,7 @@ export const faqContent = [
   },
   {
     question: "How can I contact Julius Ntale to discuss a web development project?",
-    answer: "You can contact Julius through his website at https://ntale-portfolio.vercel.app/contact, email him at juliusntale30@gmail.com, call or WhatsApp +255653520829, or request a custom quote through his services page. He typically responds within 24 hours."
+    answer: "You can contact Julius through his website at https://juliusntale.neuraltale.com/contact, email him at juliusntale30@gmail.com, call or WhatsApp +255653520829, or request a custom quote through his services page. He typically responds within 24 hours."
   },
   {
     question: "What makes Julius Ntale different from other web developers?",

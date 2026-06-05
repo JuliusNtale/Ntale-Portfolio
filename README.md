@@ -405,7 +405,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Portfolio**: [Live Site](https://ntale-portfolio.vercel.app)
+- **Portfolio**: [Live Site](https://juliusntale.neuraltale.com)
 - **Email**: [juliusntale30@gmail.com](mailto:juliusntale30@gmail.com)
 - **LinkedIn**: [Julius Ntale](https://linkedin.com/in/julius-ntale-aa08902b6)
 - **GitHub**: [JuliusNtale](https://github.com/JuliusNtale)

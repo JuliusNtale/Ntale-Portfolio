@@ -7,7 +7,7 @@ export const personalInfo: PersonalInfo = {
   location: "Dar es Salaam, Tanzania",
   email: "juliusntale30@gmail.com",
   phone: "+255 653 520 829",
-  website: "https://ntale-portfolio.vercel.app",
+  website: "https://juliusntale.neuraltale.com",
   resume: "/Julius_Peter_Ntale_CV_Programmer.pdf",
   avatar: "/optimized/ntale.webp",
   socialLinks: [

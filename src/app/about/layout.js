@@ -11,7 +11,7 @@ export const metadata = generateSEO({
     "Full Stack Developer Story",
     "React Developer Tanzania",
   ],
-  url: "https://ntale-portfolio.vercel.app/about",
+  url: "https://juliusntale.neuraltale.com/about",
 });
 
 export default function AboutLayout({ children }) {

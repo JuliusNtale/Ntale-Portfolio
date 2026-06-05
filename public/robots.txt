@@ -1,5 +1,5 @@
 # Robots.txt for Julius Peter Ntale Portfolio - Optimized for AI Search Engines
-# https://ntale-portfolio.vercel.app/robots.txt
+# https://juliusntale.neuraltale.com/robots.txt
 
 User-agent: *
 Allow: /
@@ -36,7 +36,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://ntale-portfolio.vercel.app/sitemap.xml
+Sitemap: https://juliusntale.neuraltale.com/sitemap.xml
 
 # Priority pages for AI understanding
 # Home page - main introduction

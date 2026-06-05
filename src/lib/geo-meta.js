@@ -21,8 +21,8 @@ export const generateGEOMetaTags = (pageData = {}) => {
       "remote developer East Africa"
     ],
     author = "Julius Peter Ntale",
-    canonical = "https://ntale-portfolio.vercel.app",
-    image = "https://ntale-portfolio.vercel.app/ntale.png"
+    canonical = "https://juliusntale.neuraltale.com",
+    image = "https://juliusntale.neuraltale.com/ntale.png"
   } = pageData;
 
   return {
@@ -114,29 +114,29 @@ export const generateGEOMetaTags = (pageData = {}) => {
 export const getHomePageMeta = () => generateGEOMetaTags({
   title: "Julius Peter Ntale - Expert Full Stack Developer & Digital Solutions Architect Tanzania",
   description: "Julius Peter Ntale: Expert full-stack developer in Dar es Salaam, Tanzania. React, Next.js, TypeScript specialist. 15+ successful projects. Available globally for custom web development, e-commerce platforms, and digital solutions.",
-  canonical: "https://ntale-portfolio.vercel.app"
+  canonical: "https://juliusntale.neuraltale.com"
 });
 
 export const getServicesPageMeta = () => generateGEOMetaTags({
   title: "Web Development Services by Julius Peter Ntale | React Next.js TypeScript Tanzania",
   description: "Professional web development services by Julius Peter Ntale in Tanzania. Custom web applications, e-commerce platforms, React development, Next.js solutions. Competitive rates, global availability.",
-  canonical: "https://ntale-portfolio.vercel.app/services"
+  canonical: "https://juliusntale.neuraltale.com/services"
 });
 
 export const getPortfolioPageMeta = () => generateGEOMetaTags({
   title: "Julius Peter Ntale Portfolio | Web Development Projects Tanzania East Africa",
   description: "Explore Julius Peter Ntale's portfolio of web development projects. React applications, e-commerce platforms, custom solutions built for clients in Tanzania and internationally. View live demos and case studies.",
-  canonical: "https://ntale-portfolio.vercel.app/portfolio"
+  canonical: "https://juliusntale.neuraltale.com/portfolio"
 });
 
 export const getAboutPageMeta = () => generateGEOMetaTags({
   title: "About Julius Peter Ntale | Full Stack Developer Biography Tanzania",
   description: "Learn about Julius Peter Ntale, full-stack developer from Dar es Salaam, Tanzania. 5+ years experience in React, Next.js, web development. Background in media production, serving clients globally.",
-  canonical: "https://ntale-portfolio.vercel.app/about"
+  canonical: "https://juliusntale.neuraltale.com/about"
 });
 
 export const getContactPageMeta = () => generateGEOMetaTags({
   title: "Contact Julius Peter Ntale | Web Developer Tanzania | Project Consultation",
   description: "Contact Julius Peter Ntale for web development projects. Based in Dar es Salaam, Tanzania. Available globally for React, Next.js development. Email: juliusntale30@gmail.com, Phone: +255653520829",
-  canonical: "https://ntale-portfolio.vercel.app/contact"
+  canonical: "https://juliusntale.neuraltale.com/contact"
 });

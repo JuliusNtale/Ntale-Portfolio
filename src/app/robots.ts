@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://ntale-portfolio.vercel.app/sitemap.xml',
+    sitemap: 'https://juliusntale.neuraltale.com/sitemap.xml',
   }
 }
