@@ -287,6 +287,10 @@ export function generateWebsiteStructuredData() {
     alternateName: ['Julius Ntale Portfolio', 'Ntale Web Development', 'Julius Peter Ntale Developer'],
     description: 'Professional portfolio website of Julius Peter Ntale, showcasing expert full-stack web development services, React applications, Next.js projects, and digital solutions. Based in Dar es Salaam, Tanzania, serving clients globally with modern web technologies and creative media production.',
     url: 'https://juliusntale.neuraltale.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://juliusntale.neuraltale.com/ntale.png'
+    },
     
     author: {
       '@type': 'Person',
@@ -565,6 +569,7 @@ export function generateGEOOptimizedData() {
         name: 'Julius Peter Ntale',
         description: 'Expert full-stack developer from Tanzania specializing in React, Next.js, and modern web technologies. Available for freelance projects worldwide.',
         url: 'https://juliusntale.neuraltale.com',
+        image: 'https://juliusntale.neuraltale.com/ntale.png',
         sameAs: [
           'https://github.com/JuliusNtale',
           'https://www.linkedin.com/in/julius-ntale-aa08902b6/'
@@ -586,6 +591,11 @@ export function generateGEOOptimizedData() {
         '@type': 'WebSite',
         '@id': 'https://juliusntale.neuraltale.com/#website',
         url: 'https://juliusntale.neuraltale.com',
+        image: 'https://juliusntale.neuraltale.com/ntale.png',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://juliusntale.neuraltale.com/ntale.png'
+        },
         name: 'Julius Peter Ntale Portfolio',
         publisher: {
           '@id': 'https://juliusntale.neuraltale.com/#person'
