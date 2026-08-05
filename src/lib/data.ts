@@ -158,8 +158,71 @@ export const featuredProjects: Project[] = [
       'Strengthened API-first integration and release workflows'
     ]
   },
-  {
+   {
     id: '3',
+    title: 'Mali Up Application ',
+    description: 'Mali Up is the pocket ERP built for Tanzanian SMBs — manage sales, invoices, inventory, finance, customers, and analytics from your phone. Fast on 3G. Ready for tomorrow.',
+    longDescription: 'https://maliup.neuraltale.com/#:~:text=Mali%20Up%20is%20the%20pocket%20ERP%20built%20for%20Tanzanian%20SMBs%20%E2%80%94%20manage%20sales%2C%20invoices%2C%20inventory%2C%20finance%2C%20customers%2C%20and%20analytics%20from%20your%20phone.%20Fast%20on%203G.%20Ready%20for%20tomorrow.',
+    technologies: ['Application', 'Flutter', 'Play Console'],
+    image: '/maliup.png',
+    fallbackImage: '/maliup.png',
+    images: ['/maliup.png'],
+    githubUrl: '',
+    liveUrl: 'https://maliup.neuraltale.com',
+    featured: true,
+    category: 'Application',
+    startDate: '2023-06-01',
+    endDate: '2023-08-15',
+    status: 'completed',
+    highlights: [
+      'Sales & POS',
+      'Smart Invoicing',
+      'Inventory Control',
+      'Customer Management',
+      'Financial Reports',
+      'Analytics Dashboard'
+    ],
+    challenges: [
+       'No IT team required',
+      'No steep learning curve'],
+    lessons: [
+      '8 core Business Modules',
+      '3G network optimized',
+      'User-friendly interface'
+    ]
+  },
+  {
+    id: '4',
+    title: 'HillsView Productions',
+    description: 'Production website for HillsView Productions showcasing cinematic photography and videography services.',
+    longDescription: 'A production website built for HillsView Productions to highlight their photography, videography, and media services with an emphasis on portfolio presentation and contact conversions.',
+    technologies: ['WordPress', 'HTML', 'CSS', 'SEO'],
+    image: '/hillsview.png',
+    fallbackImage: '/hillsview.png',
+    images: ['/hillsview.png'],
+    githubUrl: '',
+    liveUrl: 'https://hillsviewproduction.com',
+    featured: true,
+    category: 'web',
+    startDate: '2023-06-01',
+    endDate: '2023-08-15',
+    status: 'completed',
+    highlights: [
+      'Showcased portfolio and services',
+      'Improved lead capture and contact flow',
+      'Optimized media presentation for performance'
+    ],
+    challenges: [
+      'Balancing high-quality media with page performance',
+      'Ensuring cross-device visual fidelity for portfolios'
+    ],
+    lessons: [
+      'Improved image optimization workflows',
+      'Refined portfolio layout patterns for conversion'
+    ]
+  },
+  {
+    id: '5',
     title: 'The Link Africa Website',
     description: 'Opportunity and scholarship platform connecting young Africans with curated academic, career, and funding opportunities.',
     longDescription: 'A modern opportunity platform designed to make scholarships and development opportunities easy to discover, filter, and access for users across Africa with a clean and trustworthy experience.',
@@ -190,35 +253,6 @@ export const featuredProjects: Project[] = [
       'Refined reusable UI patterns for long-term maintainability'
     ]
   }
-  ,
-  {
-    id: '4',
-    title: 'HillsView Productions',
-    description: 'Production website for HillsView Productions showcasing cinematic photography and videography services.',
-    longDescription: 'A production website built for HillsView Productions to highlight their photography, videography, and media services with an emphasis on portfolio presentation and contact conversions.',
-    technologies: ['WordPress', 'HTML', 'CSS', 'SEO'],
-    image: '/hillsview.png',
-    fallbackImage: '/hillsview.png',
-    images: ['/hillsview.png'],
-    githubUrl: '',
-    liveUrl: 'https://hillsviewproduction.com',
-    featured: true,
-    category: 'web',
-    startDate: '2023-06-01',
-    endDate: '2023-08-15',
-    status: 'completed',
-    highlights: [
-      'Showcased portfolio and services',
-      'Improved lead capture and contact flow',
-      'Optimized media presentation for performance'
-    ],
-    challenges: [
-      'Balancing high-quality media with page performance',
-      'Ensuring cross-device visual fidelity for portfolios'
-    ],
-    lessons: [
-      'Improved image optimization workflows',
-      'Refined portfolio layout patterns for conversion'
-    ]
-  }
+  
+ 
 ];
