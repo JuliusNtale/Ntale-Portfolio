@@ -96,36 +96,35 @@ export const experiences: Experience[] = [
 export const featuredProjects: Project[] = [
   {
     id: '1',
-    title: 'Neuraltale Official Website',
-    description: 'Corporate website for Neuraltale Technologies focused on brand visibility, company profile, and conversion-driven service communication.',
-    longDescription: 'A production-ready corporate website built to present Neuraltale Technologies with a clean brand-first experience, high-performance landing pages, and clear service pathways for enterprise and startup clients.',
-    technologies: ['Next.js', 'React', 'Tailwind CSS', 'SEO', 'Vercel'],
-    image: '/neuraltale.png',
-    fallbackImage: '/optimized/project1.webp',
-    images: ['/optimized/project1.webp'],
-    githubUrl: 'https://github.com/JuliusNtale',
-    liveUrl: 'https://neuraltale.com',
+    title: 'HillsView Productions',
+    description: 'Production website for HillsView Productions showcasing cinematic photography and videography services.',
+    longDescription: 'A production website built for HillsView Productions to highlight their photography, videography, and media services with an emphasis on portfolio presentation and contact conversions.',
+    technologies: ['WordPress', 'HTML', 'CSS', 'SEO'],
+    image: '/hillsview.png',
+    fallbackImage: '/hillsview.png',
+    images: ['/hillsview.png'],
+    githubUrl: '',
+    liveUrl: 'https://hillsviewproduction.com',
     featured: true,
     category: 'web',
-    startDate: '2025-01-01',
-    endDate: '2025-03-31',
+    startDate: '2023-06-01',
+    endDate: '2023-08-15',
     status: 'completed',
     highlights: [
-      'Delivered a polished corporate homepage experience',
-      'Implemented responsive UX for mobile and desktop users',
-      'Optimized pages for performance and discoverability'
+      'Showcased portfolio and services',
+      'Improved lead capture and contact flow',
+      'Optimized media presentation for performance'
     ],
     challenges: [
-      'Balancing visual brand identity with loading performance',
-      'Structuring content for both users and search engines',
-      'Maintaining consistency across different screen sizes'
+      'Balancing high-quality media with page performance',
+      'Ensuring cross-device visual fidelity for portfolios'
     ],
     lessons: [
-      'Strengthened enterprise-focused UI communication patterns',
-      'Improved production deployment and optimization workflow',
-      'Validated scalable component architecture in real-world use'
+      'Improved image optimization workflows',
+      'Refined portfolio layout patterns for conversion'
     ]
   },
+  
   {
     id: '2',
     title: 'Neuralashop Microservices E-Commerce',
@@ -162,7 +161,7 @@ export const featuredProjects: Project[] = [
     id: '3',
     title: 'Mali Up Application ',
     description: 'Mali Up is the pocket ERP built for Tanzanian SMBs — manage sales, invoices, inventory, finance, customers, and analytics from your phone. Fast on 3G. Ready for tomorrow.',
-    longDescription: 'https://maliup.neuraltale.com/#:~:text=Mali%20Up%20is%20the%20pocket%20ERP%20built%20for%20Tanzanian%20SMBs%20%E2%80%94%20manage%20sales%2C%20invoices%2C%20inventory%2C%20finance%2C%20customers%2C%20and%20analytics%20from%20your%20phone.%20Fast%20on%203G.%20Ready%20for%20tomorrow.',
+    longDescription: 'https://play.google.com/store/apps/details?id=com.neuraltale.maliup#:~:text=Mali%20Up%20is%20the%20pocket%20ERP%20built%20for%20Tanzanian%20SMBs%20%E2%80%94%20manage%20sales%2C%20invoices%2C%20inventory%2C%20finance%2C%20customers%2C%20and%20analytics%20from%20your%20phone.%20Fast%20on%203G.%20Ready%20for%20tomorrow.',
     technologies: ['Application', 'Flutter', 'Play Console'],
     image: '/maliup.png',
     fallbackImage: '/maliup.png',
@@ -191,36 +190,40 @@ export const featuredProjects: Project[] = [
       'User-friendly interface'
     ]
   },
+  
   {
     id: '4',
-    title: 'HillsView Productions',
-    description: 'Production website for HillsView Productions showcasing cinematic photography and videography services.',
-    longDescription: 'A production website built for HillsView Productions to highlight their photography, videography, and media services with an emphasis on portfolio presentation and contact conversions.',
-    technologies: ['WordPress', 'HTML', 'CSS', 'SEO'],
-    image: '/hillsview.png',
-    fallbackImage: '/hillsview.png',
-    images: ['/hillsview.png'],
-    githubUrl: '',
-    liveUrl: 'https://hillsviewproduction.com',
-    featured: true,
+    title: 'Neuraltale Official Website',
+    description: 'Corporate website for Neuraltale Technologies focused on brand visibility, company profile, and conversion-driven service communication.',
+    longDescription: 'A production-ready corporate website built to present Neuraltale Technologies with a clean brand-first experience, high-performance landing pages, and clear service pathways for enterprise and startup clients.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'SEO', 'Vercel'],
+    image: '/neuraltale.png',
+    fallbackImage: '/optimized/project1.webp',
+    images: ['/optimized/project1.webp'],
+    githubUrl: 'https://github.com/JuliusNtale',
+    liveUrl: 'https://neuraltale.com',
+    featured: false,
     category: 'web',
-    startDate: '2023-06-01',
-    endDate: '2023-08-15',
+    startDate: '2025-01-01',
+    endDate: '2025-03-31',
     status: 'completed',
     highlights: [
-      'Showcased portfolio and services',
-      'Improved lead capture and contact flow',
-      'Optimized media presentation for performance'
+      'Delivered a polished corporate homepage experience',
+      'Implemented responsive UX for mobile and desktop users',
+      'Optimized pages for performance and discoverability'
     ],
     challenges: [
-      'Balancing high-quality media with page performance',
-      'Ensuring cross-device visual fidelity for portfolios'
+      'Balancing visual brand identity with loading performance',
+      'Structuring content for both users and search engines',
+      'Maintaining consistency across different screen sizes'
     ],
     lessons: [
-      'Improved image optimization workflows',
-      'Refined portfolio layout patterns for conversion'
+      'Strengthened enterprise-focused UI communication patterns',
+      'Improved production deployment and optimization workflow',
+      'Validated scalable component architecture in real-world use'
     ]
   },
+  
   {
     id: '5',
     title: 'The Link Africa Website',
