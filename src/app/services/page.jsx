@@ -652,6 +652,10 @@ const Services = () => {
                             <span className="font-medium text-gray-800 dark:text-gray-100">{formatPrice(item.amount).current}</span>
                           </li>
                         ))}
+                        <li className="flex items-center justify-between text-sm font-semibold border-t border-gray-200 dark:border-gray-700 pt-2 mt-1">
+                          <span>Total</span>
+                          <span>{formatPrice(pkg.price).current}</span>
+                        </li>
                       </ul>
                     </div>
                   )}
