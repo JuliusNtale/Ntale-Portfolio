@@ -24,7 +24,7 @@ import { analytics } from "@/lib/analytics";
 import ServiceQuoteForm from "@/components/ServiceQuoteForm";
 
 const Services = () => {
-  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+  const [selectedCurrency, setSelectedCurrency] = useState("TSH");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [selectedPackageForQuote, setSelectedPackageForQuote] = useState("");
@@ -649,7 +649,7 @@ const Services = () => {
                         {pkg.costBreakdown.map((item, idx) => (
                           <li key={idx} className="flex items-center justify-between text-sm">
                             <span className="text-gray-600 dark:text-gray-300">{item.label}</span>
-                            <span className="font-medium text-gray-800 dark:text-gray-100">${item.amount}</span>
+                            <span className="font-medium text-gray-800 dark:text-gray-100">{formatPrice(item.amount).current}</span>
                           </li>
                         ))}
                       </ul>
